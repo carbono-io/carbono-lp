@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "browser-sync": "^2.9.3",
     "gulp": "^3.9.0",
     "gulp-less": "^3.0.3"
   }
