@@ -6,17 +6,22 @@ body {
     font-family: 'Source Sans Pro', sans-serif;
 
     #header {
-        position: absolute;
+        position: fixed;
         top: 0;
+        z-index: 1000;
         width: 100%;
-        background-color: aqua;
+        background-color: transparent;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        color: @menu-color;
 
         #logo {
             margin: 40px;
+            img {
+                height: 64px;
+            }
         }
 
         #menu {
@@ -24,10 +29,8 @@ body {
         }
     }
 
-    .frames {
-    }
 
-    #frame-01 {
+    #section-01 {
         background-color: @black;
         display: flex;
         flex-direction: column;
@@ -52,8 +55,80 @@ body {
         padding: 0 56px;
         box-sizing: border-box;
         border: 1px solid @blue;
-
     }
 
+    // Texto explicativo
+    #section-02 {
+        background-color: aqua;
+        .text {
+            font-size: 30px;
+            line-height: 1.5;
+            font-style: italic;
+            font-weight: 300;
+            width: 70%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 20%;
+        }
+    }
 
+    // Democratizar o desenvolvimento de tecnologia da informação
+    #section-03 {
+        background-color: aquamarine;
+        .text {
+            font-size: 80px;
+            line-height: 1.4;
+            width: 80%;
+            font-weight: 600;
+            max-width: 600px;
+            margin: 0 auto;
+//            padding-top: 20%;
+        }
+        #dashed-line {
+            height: 2px;
+            width: 70%;
+            border-bottom: 2px dashed @black;
+            transform: rotate(90deg);
+        }
+        .circle {
+            height: 240px;
+            width: 240px;
+            border-radius: 50%;
+            border: 1px solid @black;
+        }
+        #circle-03-1 {
+
+        }
+    }
+
+    // Empoderar pessoas de diferentes áreas do conhecimento
+    #section-04 {
+        .text {
+            font-size: 60px;
+            line-height: 1.5;
+            width: 80%;
+            font-weight: 300;
+            max-width: 500px;
+            margin: 0 auto;
+            padding-top: 20%;
+
+            #circle-04-1 {
+                margin-top:-120px;
+                margin-left: -50px;
+            }
+        }
+        .circle {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            background-color: @gray;
+        }
+        #solid-line {
+            margin: 0 auto;
+            height: 2px;
+            width: 70%;
+            border-bottom: 2px solid @black;
+            transform: rotate(135deg);
+        }
+    }
 }
