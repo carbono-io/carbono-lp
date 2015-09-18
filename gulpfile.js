@@ -21,6 +21,7 @@ gulp.task("watch", function () {
     gulp.watch(['src/**/*.css', 'src/**/*.html'], function () {
         browserSync.reload();
     });
+
 });
 
 //browser-sync
@@ -31,6 +32,7 @@ gulp.task('browser-sync', function() {
             baseDir: "./src/"
         }
     });
+
 });
 
 gulp.task('develop', ['watch', 'browser-sync']);
