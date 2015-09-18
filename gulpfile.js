@@ -17,7 +17,11 @@ gulp.task("less", function () {
 gulp.task("watch", function () {
     
 //gulp atualiza toda vez que em qualquer diretorio, qualquer arquivo de less for alterado - no caso temos o variables e o index
-    gulp.watch('src/**/*.less', ["less"])
+    gulp.watch('src/**/*.less', ["less"]);
+    gulp.watch('src/**/*.css')
+        .on('change', function () {
+            browserSync.reload();
+        })
 
 });
 
@@ -29,4 +33,7 @@ gulp.task('browser-sync', function() {
             baseDir: "./src/"
         }
     });
+
 });
+
+gulp.task('develop', ['watch', 'browser-sync']);
