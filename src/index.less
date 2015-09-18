@@ -1,7 +1,61 @@
 @import "less/variables.less";
+@import "less/reset.less";
 
 
 body {
-    background-color: red;
+
+    font-family: 'Source Sans Pro', sans-serif;
+
+    #header {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        background-color: aqua;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        #logo {
+            margin: 40px;
+        }
+
+        #menu {
+            margin: 40px;
+        }
+    }
+
+    .frames {
+    }
+
+    #frame-01 {
+        background-color: @black;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    h1 {
+        color: @white;
+        font-size: 64px;
+        line-height: 1.2;
+        text-align: center;
+        width: 80%;
+    }
+
+    .button {
+        cursor: pointer;
+        color: @blue;
+        text-transform: uppercase;
+        font-size: 16px;
+        line-height: 56px;
+        padding: 0 56px;
+        box-sizing: border-box;
+        border: 1px solid @blue;
+
+    }
+
+
 
 }
