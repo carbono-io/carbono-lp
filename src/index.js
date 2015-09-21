@@ -2,6 +2,80 @@
 
 $(document).ready(function() {
     setSectionHeight();
+
+    //botão enviar carrega disabled
+    $('#register-button').attr('disabled',true);
+
+
+    //nome começa inválido
+    var validName = false;
+
+    // email começa inválido
+    var validEmail = false;
+
+
+        //validar input de nome
+        $('#name').keyup(function() {
+            var input = $(this);
+
+           if( input.val() == "" ) {
+                validName = false;
+                $('#register-button').attr('disabled',true);
+            }
+            else {
+                validName = true;
+
+                if (validEmail == true) {
+                    console.log("eba!");
+                    $('#register-button').attr('disabled',false);
+                }
+
+                else {
+                    console.log("falta email");
+                    $('#register-button').attr('disabled',true);
+                }
+
+            }
+
+        });
+
+        //validar input de email
+        $('#email').focusout(function() {
+            var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+
+            if (testEmail.test(this.value)) {
+                validEmail = true;
+                 $('#email-input-container').removeClass('error');
+
+                if (validName == true) {
+                    console.log("eba!");
+                    $('#register-button').attr('disabled',false);
+                }
+                else {
+                    console.log("falta nome!");
+                    $('#register-button').attr('disabled',true);
+                }
+            }
+
+            else {
+                validEmail = false;
+                $('#register-button').attr('disabled',true);
+                console.log("email errado!");
+                $('#email-input-container').addClass('error');
+            }
+        });
+
+
+
+        // submit do form
+        $( "#form-contact" ).submit(function( event ) {
+        // alert( "Handler for .submit() called." );
+
+
+    });
+
+
+
 });
 
 
@@ -42,11 +116,23 @@ $(document).on('scroll', function () {
 var setSectionHeight = function () {
     var windowHeight = $(window ).height();
     var currentHeight = $(".sections").css('height', windowHeight);
+    var currentHeightmodal = $("#modal-container").css('height', windowHeight);
 };
 
 
 $('#button-to-form').click(function () {
-    $('#section-form').addClass('active');
+    $('#section-form').toggleClass('active');
+    $('#header').css('display', 'none');
+    window.scrollTo(0, 0);
+//    qual o melhor jeito para deixar de exibir o restante da página aqui? display none nas coisas com classe sections?
+
 });
+
+
+$('#close-form').click(function () {
+    $('#section-form').toggleClass('active');
+    $('#header').css('display', 'flex');
+});
+
 
 
