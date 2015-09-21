@@ -99,8 +99,11 @@ $(document).ready(function() {
         $( "#form-contact" ).submit(function( event ) {
         // alert( "Handler for .submit() called." );
 
+            // loading - ele quase não mostra pq não está com o back
+            $("#modal-container").addClass('active');
+            $("#loading-state").addClass('active');
 
-    });
+        });
 
 
 
