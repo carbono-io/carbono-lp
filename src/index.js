@@ -44,3 +44,9 @@ var setSectionHeight = function () {
     var currentHeight = $(".sections").css('height', windowHeight);
 };
 
+
+$('#button-to-form').click(function () {
+    $('#section-form').toggleClass('active');
+});
+
+
