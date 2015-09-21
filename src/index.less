@@ -30,21 +30,13 @@ body {
         }
     }
 
-
-    #section-01 {
-        background-color: @black;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
     h1 {
         color: @white;
         font-size: 64px;
         line-height: 1.2;
         text-align: center;
         width: 80%;
+        max-width: 750px
     }
 
     .button {
@@ -58,6 +50,23 @@ body {
         border: 1px solid @blue;
     }
 
+    .sections {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    // Início + botão para formulário
+    #section-01 {
+        background-color: @black;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
     // Texto explicativo
     #section-02 {
         background-color: aqua;
@@ -68,8 +77,6 @@ body {
             font-weight: 300;
             width: 70%;
             max-width: 800px;
-            margin: 0 auto;
-            padding-top: 20%;
         }
     }
 
@@ -82,14 +89,12 @@ body {
             width: 80%;
             font-weight: 600;
             max-width: 600px;
-            margin: 0 auto;
-//            padding-top: 20%;
         }
-        #dashed-line {
-            height: 2px;
+        #dashed-line-03-1 {
             width: 70%;
-            border-bottom: 2px dashed @black;
-            transform: rotate(90deg);
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(90deg);
         }
         .circle {
             height: 240px;
@@ -107,29 +112,130 @@ body {
         .text {
             font-size: 60px;
             line-height: 1.5;
+            z-index: 10;
             width: 80%;
             font-weight: 300;
             max-width: 500px;
-            margin: 0 auto;
-            padding-top: 20%;
+        }
 
-            #circle-04-1 {
-                margin-top:-120px;
-                margin-left: -50px;
+        #circle-04-1 {
+            top: 40%;
+            left: 30%;
+            height: 100px;
+            width: 100px;
+            z-index: 8;
+        }
+
+        #solid-line-04-1{
+            width: 10%;
+            top: 20%;
+            left: 80%;
+            transform: translate(-50%, 0) rotate(135deg);
+        }
+
+        #solid-line-04-2{
+            width: 10%;
+            top: 80%;
+            left: 20%;
+            transform: translate(-50%, 0) rotate(135deg);
+        }
+    }
+
+    // Diminuir a barreira para o desenvolvimento de aplicações
+    #section-05 {
+        background-color: yellow;
+        .text {
+            font-size: 60px;
+            line-height: 1.5;
+            text-align: center;
+        }
+        #circle-05-1 {
+            background: repeat url("../img/texture-1.png");
+        }
+    }
+
+    // Contribuir para a transformação do futuro
+    #section-06 {
+        background-color: orange;
+        .text {
+            font-size: 60px;
+            line-height: 1.5;
+            max-width: 450px;
+            font-weight: 600;
+        }
+
+    }
+
+    .to-animate {
+        position: absolute;
+    }
+
+    // style of all solid-lines
+    .solid-line {
+        position: absolute;
+        height: 0px;
+        width: 100%;
+        border-bottom: 2px solid @black;
+    }
+
+
+    // style of all solid-lines
+    .dashed-line {
+        height: 0px;
+        width: 100%;
+        border-bottom: 2px dashed @black;
+    }
+
+    // style of all circles
+    .circle {
+        position: absolute;
+        height: 250px;
+        width: 250px;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        background-color: @gray;
+    }
+
+    #section-aboutus {
+        width: 80%;
+        margin: 0 auto;
+
+        #title {
+            font-size: 66px;
+            line-height: 1.5;
+            font-weight: 700;
+            margin: 72px 0 72px -2px;
+        }
+
+        #content {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-left: -2px;
+            margin-right: -2px;
+
+            .person {
+                margin: 0 2px 72px 2px;
+
+                img {
+                    height: 300px;
+                    width: 300px;
+                    margin-bottom: 16px;
+                }
+
+                .label {
+                    background-color: @light-grey;
+                    width: 60%;
+                    font-size: 14px;
+                    padding: 8px;
+                    font-weight: 700;
+
+                    &:first-child {
+                        text-transform: uppercase;
+                    }
+                }
             }
-        }
-        .circle {
-            height: 50px;
-            width: 50px;
-            border-radius: 50%;
-            background-color: @gray;
-        }
-        #solid-line {
-            margin: 0 auto;
-            height: 2px;
-            width: 70%;
-            border-bottom: 2px solid @black;
-            transform: rotate(135deg);
         }
     }
 
