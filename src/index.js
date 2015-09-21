@@ -13,6 +13,9 @@ $(document).ready(function() {
     // email começa inválido
     var validEmail = false;
 
+    //checkboxes começam não selecionados
+    var checkedAtLeastOne = false;
+
 
         //validar input de nome
         $('#name').keyup(function() {
@@ -25,13 +28,13 @@ $(document).ready(function() {
             else {
                 validName = true;
 
-                if (validEmail == true) {
+                if (validEmail == true && checkedAtLeastOne == true){
                     console.log("eba!");
                     $('#register-button').attr('disabled',false);
                 }
 
                 else {
-                    console.log("falta email");
+                    console.log("falta email ou checkbox");
                     $('#register-button').attr('disabled',true);
                 }
 
@@ -47,12 +50,12 @@ $(document).ready(function() {
                 validEmail = true;
                  $('#email-input-container').removeClass('error');
 
-                if (validName == true) {
+                if (validName == true && checkedAtLeastOne == true){
                     console.log("eba!");
                     $('#register-button').attr('disabled',false);
                 }
                 else {
-                    console.log("falta nome!");
+                    console.log("falta nome ou checkbox");
                     $('#register-button').attr('disabled',true);
                 }
             }
@@ -64,6 +67,31 @@ $(document).ready(function() {
                 $('#email-input-container').addClass('error');
             }
         });
+
+
+            //checkboxes
+
+            $('input[type="checkbox').click (function(){
+
+                checkedAtLeastOne = false;
+                $('#register-button').attr('disabled',true);
+
+                $('input[type="checkbox"]').each(function() {
+                    if ($(this).is(":checked")) {
+                        checkedAtLeastOne = true;
+
+                        if (validEmail == true && validName == true) {
+                            $('#register-button').attr('disabled',false);
+                        }
+
+                        else {
+                            $('#register-button').attr('disabled',true);
+                        }
+                    }
+
+                });
+
+            });
 
 
 
