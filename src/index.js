@@ -21,27 +21,16 @@ $(document).ready(function() {
         $('#name').keyup(function() {
             var input = $(this);
 
-            // TODO: sem espaços dentro da condicional
-            // e if separado da condicional
-            // e o ideal é sempre utilizar o comparador triplo (identidade) (===)
-            // if (input.val() === "")
-            if( input.val() == "" ) {
+            if (input.val()==="") {
                 validName = false;
                 $('#register-button').attr('disabled',true);
-            }
-
-            // TODO: else deve ficar sempre na mesma linha do fechamento de chave
-            // } else { 
-            else {
+            } else {
                 validName = true;
 
-                if (validEmail == true && checkedAtLeastOne == true){
+                if (validEmail===true && checkedAtLeastOne===true){
                     console.log("eba!");
                     $('#register-button').attr('disabled',false);
-                }
-                // TODO: else
-
-                else {
+                } else {
                     console.log("falta email ou checkbox");
                     $('#register-button').attr('disabled',true);
                 }
@@ -54,26 +43,17 @@ $(document).ready(function() {
 
             if (testEmail.test(this.value)) {
                 validEmail = true;
-
-                // TODO: muito bom isso de usar classes no container :)
                 $('#email-input-container').removeClass('error');
 
-                if (validName == true && checkedAtLeastOne == true){
-                    console.log("eba!");
+                if (validName===true && checkedAtLeastOne===true){
                     $('#register-button').attr('disabled',false);
-                }
-
-                // TODO: else
-                else {
-                    console.log("falta nome ou checkbox");
+                } else {
                     $('#register-button').attr('disabled',true);
                 }
-            }
 
-            else {
+            } else {
                 validEmail = false;
                 $('#register-button').attr('disabled',true);
-                console.log("email errado!");
                 $('#email-input-container').addClass('error');
             }
         });
@@ -90,12 +70,9 @@ $(document).ready(function() {
                     if ($(this).is(":checked")) {
                         checkedAtLeastOne = true;
 
-                        if (validEmail == true && validName == true) {
+                        if (validEmail===true && validName===true) {
                             $('#register-button').attr('disabled',false);
-                        }
-                        // TODO: else
-
-                        else {
+                        } else {
                             $('#register-button').attr('disabled',true);
                         }
                     }
@@ -106,8 +83,6 @@ $(document).ready(function() {
 
         // submit do form
         $("#form-contact").submit(function(event) {
-        // alert( "Handler for .submit() called." );
-        // TODO: remover código comentado
         
             event.preventDefault();
 
