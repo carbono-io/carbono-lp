@@ -2,6 +2,127 @@
 
 $(document).ready(function() {
     setSectionHeight();
+
+    // botão enviar carrega disabled
+    $('#register-button').attr('disabled',true);
+
+    // nome começa inválido
+    var validName = false;
+
+    // email começa inválido
+    var validEmail = false;
+
+    // checkboxes começam não selecionados
+    var checkedAtLeastOne = false;
+
+    // TODO: identação
+
+        //validar input de nome
+        $('#name').keyup(function() {
+            var input = $(this);
+
+            // TODO: sem espaços dentro da condicional
+            // e if separado da condicional
+            // e o ideal é sempre utilizar o comparador triplo (identidade) (===)
+            // if (input.val() === "")
+            if( input.val() == "" ) {
+                validName = false;
+                $('#register-button').attr('disabled',true);
+            }
+
+            // TODO: else deve ficar sempre na mesma linha do fechamento de chave
+            // } else { 
+            else {
+                validName = true;
+
+                if (validEmail == true && checkedAtLeastOne == true){
+                    console.log("eba!");
+                    $('#register-button').attr('disabled',false);
+                }
+                // TODO: else
+
+                else {
+                    console.log("falta email ou checkbox");
+                    $('#register-button').attr('disabled',true);
+                }
+            }
+        });
+
+        //validar input de email
+        $('#email').focusout(function() {
+            var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+
+            if (testEmail.test(this.value)) {
+                validEmail = true;
+
+                // TODO: muito bom isso de usar classes no container :)
+                $('#email-input-container').removeClass('error');
+
+                if (validName == true && checkedAtLeastOne == true){
+                    console.log("eba!");
+                    $('#register-button').attr('disabled',false);
+                }
+
+                // TODO: else
+                else {
+                    console.log("falta nome ou checkbox");
+                    $('#register-button').attr('disabled',true);
+                }
+            }
+
+            else {
+                validEmail = false;
+                $('#register-button').attr('disabled',true);
+                console.log("email errado!");
+                $('#email-input-container').addClass('error');
+            }
+        });
+
+            // checkboxes
+            // TODO: identação
+
+            $('input[type="checkbox').click(function(){
+
+                checkedAtLeastOne = false;
+                $('#register-button').attr('disabled',true);
+
+                $('input[type="checkbox"]').each(function() {
+                    if ($(this).is(":checked")) {
+                        checkedAtLeastOne = true;
+
+                        if (validEmail == true && validName == true) {
+                            $('#register-button').attr('disabled',false);
+                        }
+                        // TODO: else
+
+                        else {
+                            $('#register-button').attr('disabled',true);
+                        }
+                    }
+
+                });
+
+            });
+
+        // submit do form
+        $("#form-contact").submit(function(event) {
+        // alert( "Handler for .submit() called." );
+        // TODO: remover código comentado
+        
+            event.preventDefault();
+
+            setTimeout(function () {
+                $('#loading-state').removeClass('active');
+                $('#sent-state').addClass('active');
+            }, 2000);
+
+            // loading - ele quase não mostra pq não está com o back
+            $("#modal-container").addClass('active');
+            $("#loading-state").addClass('active');
+
+        });
+
+        // TODO: posicionamento do loading está
 });
 
 
@@ -63,11 +184,23 @@ $(window).resize(function() {
 var setSectionHeight = function () {
     var windowHeight = $(window ).height();
     var currentHeight = $(".sections").css('height', windowHeight);
+    var currentHeightmodal = $("#modal-container").css('height', windowHeight);
 };
 
 
 $('#button-to-form').click(function () {
-    $('#section-form').addClass('active');
+    $('#section-form').toggleClass('active');
+    $('#header').css('display', 'none');
+    window.scrollTo(0, 0);
+//    qual o melhor jeito para deixar de exibir o restante da página aqui? display none nas coisas com classe sections?
+
 });
+
+
+$('#close-form').click(function () {
+    $('#section-form').toggleClass('active');
+    $('#header').css('display', 'flex');
+});
+
 
 
