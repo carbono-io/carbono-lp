@@ -111,6 +111,11 @@ $(document).ready(function() {
         
             event.preventDefault();
 
+            setTimeout(function () {
+                $('#loading-state').removeClass('active');
+                $('#sent-state').addClass('active');
+            }, 2000);
+
             // loading - ele quase não mostra pq não está com o back
             $("#modal-container").addClass('active');
             $("#loading-state").addClass('active');
