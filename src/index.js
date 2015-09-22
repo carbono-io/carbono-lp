@@ -59,7 +59,7 @@ $(document).ready(function() {
     });
 
     // checkboxes
-    $('input[type="checkbox').click(function(){
+    $('input[type="checkbox"]').click(function(){
 
         checkedAtLeastOne = false;
         $('#register-button').attr('disabled',true);
