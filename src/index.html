@@ -7,6 +7,9 @@
 
         <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600,700,700italic' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="index.css">
+
+
+
     </head>
 
     <body>
@@ -28,7 +31,7 @@
 
                 <div id="sent-state">
                     <h2>Sua inscrição foi realizada!<br><span>Em breve entraremos em contato.</span></h2>
-                    <button class="button">Ok</button>
+                    <button class="button" id="sent-close-button">Ok</button>
                 </div>
 
             </div>
@@ -92,63 +95,58 @@ a versão beta?<br> Se inscreva aqui!</h2>
 
         </div>
 
+        <div id="content-wrapper">
 
-        <div id="section-01" class="sections">
-            <h1>Transforme suas idéias em
-    aplicações poderosas.</h1>
-            <a href="#section-form">
-                <div id="button-to-form" class="button">
-                quero testar versão beta
+            <div id="section-01" class="sections">
+                <h1>Transforme suas idéias em
+        aplicações poderosas.</h1>
+                <a href="#section-form">
+                    <div id="button-to-form" class="button">
+                    quero testar versão beta
+                    </div>
+                </a>
+            </div>
+
+            <div id="section-02" class="sections">
+                <div class="text">
+                Nossa plataforma irá empoderar pessoas com diferentes níveis de conhecimento, possibilitando que sozinhas possam construir sistemas de informação poderosos que transformarão o futuro.
                 </div>
-            </a>
-        </div>
+            </div>
 
-        <div id="section-02" class="sections">
-            <div class="text">
-            Nossa plataforma irá empoderar pessoas com diferentes níveis de conhecimento, possibilitando que sozinhas possam construir sistemas de informação poderosos que transformarão o futuro.
-            </div>
-        </div>
-
-        <div id="section-03" class="sections scrollme">
-            <div class="text">
-                Democratizar o desenvolvimento de tecnologia da informação
-            </div>
-            <div
-                id="dashed-line-03-1"
-                class="dashed-line animateme"
-                data-when="enter"
-                data-from="0"
-                data-to="1"
-                data-rotatez="-90"
-                data-easing="easeinout"
-                 >linha1
-            </div>
-            <img
-                src="img/circle-03-1.png"
-                id="circle-03-1"
-                class="animateme"
-                data-when="enter"
-                data-from="0"
-                data-to="1"
-                data-translatey="-80"
-                data-easing="easeout"
-                 >
-            <div
-                id="circle-03-2"
-                class="animateme circle"
-                data-when="enter"
-                data-from="0"
-                data-to="1"
-                data-translatey="-100"
-                data-translatex="100"
-                data-easing="easeout"
-                 >
-            </div>
-        </div>
-
-        <div id="section-04" class="sections scrollme">
-            <div class="text">
-                Empoderar pessoas de diferentes áreas do conhecimento
+            <div id="section-03" class="sections scrollme">
+                <div class="text">
+                    Democratizar o desenvolvimento de tecnologia da informação
+                </div>
+                <div
+                    id="dashed-line-03-1"
+                    class="dashed-line animateme"
+                    data-when="enter"
+                    data-from="0"
+                    data-to="1"
+                    data-rotatez="-90"
+                     >linha1
+                </div>
+                <img
+                    src="img/circle-03-1.png"
+                    id="circle-03-1"
+                    class="animateme"
+                    data-when="enter"
+                    data-from="0"
+                    data-to="1"
+                    data-translatey="-80"
+                    data-easing="easeout"
+                     >
+                <div
+                    id="circle-03-2"
+                    class="animateme circle"
+                    data-when="view"
+                    data-from="0"
+                    data-to="1"
+                    data-translatey="-100"
+                    data-translatex="50"
+                    data-easing="easeout"
+                     >
+                </div>
             </div>
             <div
                 id="circle-04-2"
@@ -211,83 +209,107 @@ a versão beta?<br> Se inscreva aqui!</h2>
             <div id="solid-line-04-2" class="solid-line"></div>
         </div>
 
-        <div id="section-05" class="sections scrollme">
-            <div class="text">
-                Diminuir a barreira para o desenvolvimento de aplicações
+            <div id="section-04" class="sections scrollme">
+                <div class="text">
+                    Empoderar pessoas de diferentes áreas do conhecimento
+                </div>
+                <div
+                    id="circle-04-1"
+                    class="circle animateme"
+                    data-when="enter"
+                    data-from="0"
+                    data-to="1"
+                    data-scale="4"
+                     ></div>
+                <div
+                    id="solid-line-04-1"
+                    class="solid-line animateme"
+                    data-when="enter"
+                    data-from="1"
+                    data-to="0"
+                    data-rotatez="100"
+                     ></div>
+                <div id="solid-line-04-2" class="solid-line"></div>
             </div>
-            <div class="dashed-line" id="dashed-line-1"></div>
-            <div class="solid-line" id="solid-line-2"></div>
-            <div class="solid-line" id="solid-line-3"></div>
-        </div>
 
-        <div id="section-06" class="sections scrollme">
-            <div class="text">
-                Contribuir para a transformação do futuro
+            <div id="section-05" class="sections scrollme">
+                <div class="text">
+                    Diminuir a barreira para o desenvolvimento de aplicações
+                </div>
+                <div class="dashed-line" id="dashed-line-1"></div>
+                <div class="solid-line" id="solid-line-2"></div>
+                <div class="solid-line" id="solid-line-3"></div>
             </div>
-            <div id="circle-05-1" class="circle"></div>
-            <img src="img/texture-1.png" class="to-animate">
-        </div>
 
-        <div id="section-aboutus">
-            <div id="title">
-                sobre nós
+            <div id="section-06" class="sections scrollme">
+                <div class="text">
+                    Contribuir para a transformação do futuro
+                </div>
+                <div id="circle-05-1" class="circle"></div>
+                <img src="img/texture-1.png" class="to-animate">
             </div>
-            <div id="content">
-                <div class="person">
-                    <img src="img/aboutus/luci.png">
-                    <div class="label">
-                        <div>Luciana Heuko</div>
-                        <div>ux designer</div>
-                    </div>
-                </div>
-                <div class="person">
-                    <img src="img/aboutus/gm.png">
-                    <div class="label">
-                        <div>Patricia Jenny</div>
-                        <div>ux designer</div>
-                    </div>
-                </div>
-                <div class="person">
-                    <img src="img/aboutus/gsr.png">
-                    <div class="label">
-                        <div>Jean Paul</div>
-                        <div>ux designer</div>
-                    </div>
-                </div>
-                <div class="person">
-                    <img src="img/aboutus/luciana.jpg">
-                    <div class="label">
-                        <div>Jean Paul</div>
-                        <div>ux designer</div>
-                    </div>
-                </div>
-                <div class="person">
-                    <img src="img/aboutus/luciana.jpg">
-                    <div class="label">
-                        <div>Jean Paul</div>
-                        <div>ux designer</div>
-                    </div>
-                </div>
-                <div class="person">
-                    <img src="img/aboutus/luciana.jpg">
-                    <div class="label">
-                        <div>Jean Paul</div>
-                        <div>ux designer</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="section-contactus" class="sections">
-            <div class="text">
-                Quer saber mais? <br>
-                Fale com a gente!
-            </div>
-            <div id="mail">
-                <img src="img/mail-icon.png">
-                hello@carbono.io
-            </div>
-        </div>
 
+            <div id="section-aboutus">
+                <div id="title">
+                    sobre nós
+                </div>
+                <div id="content">
+                    <div class="person">
+                        <img src="img/aboutus/luci.png">
+                        <div class="label">
+                            <div>Luciana Heuko</div>
+                            <div>ux designer</div>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <img src="img/aboutus/gm.png">
+                        <div class="label">
+                            <div>Patricia Jenny</div>
+                            <div>ux designer</div>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <img src="img/aboutus/gsr.png">
+                        <div class="label">
+                            <div>Jean Paul</div>
+                            <div>ux designer</div>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <img src="img/aboutus/luciana.jpg">
+                        <div class="label">
+                            <div>Jean Paul</div>
+                            <div>ux designer</div>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <img src="img/aboutus/luciana.jpg">
+                        <div class="label">
+                            <div>Jean Paul</div>
+                            <div>ux designer</div>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <img src="img/aboutus/luciana.jpg">
+                        <div class="label">
+                            <div>Jean Paul</div>
+                            <div>ux designer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="section-contactus" class="sections">
+                <div class="text">
+                    Quer saber mais? <br>
+                    Fale com a gente!
+                </div>
+                <div id="mail">
+                    <img src="img/mail-icon.png">
+                    hello@carbono.io
+                </div>
+            </div>
+
+        </div>
         
         <script src="bower_components/jquery/dist/jquery.js"></script>
         <script src="bower_components/scrollme/jquery.scrollme.min.js"></script>
@@ -298,6 +320,9 @@ a versão beta?<br> Se inscreva aqui!</h2>
         <script src="index.js"></script>
 
 
+<!--    scroll magic-->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
 
 
         <script>
