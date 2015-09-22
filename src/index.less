@@ -90,18 +90,36 @@ body {
             width: 80%;
             font-weight: 600;
             max-width: 600px;
+            z-index: 10;
         }
         #dashed-line-03-1 {
-            width: 70%;
             left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%) rotate(90deg);
+            top: -10%;
+//            transform: translate(-50%, -50%);
+            position: absolute;
+            width: 0;
+            height: 120%;
+            border-right: 3px dashed @black;
+
         }
         #circle-03-1 {
+            position: absolute;
             height: 240px;
             width: 240px;
             border-radius: 50%;
+            top: 10%;
+            left: 70%;
+        }
+
+        #circle-03-2 {
+            height: 200px;
+            width: 200px;
+            z-index: 6;
+            border-radius: 50%;
             border: 1px solid @black;
+            top: 10%;
+            left: 70%;
+            background-color: transparent;
         }
     }
 
