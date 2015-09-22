@@ -3,28 +3,35 @@
 $(document).ready(function() {
     setSectionHeight();
 
-    //botão enviar carrega disabled
+    // botão enviar carrega disabled
     $('#register-button').attr('disabled',true);
 
-
-    //nome começa inválido
+    // nome começa inválido
     var validName = false;
 
     // email começa inválido
     var validEmail = false;
 
-    //checkboxes começam não selecionados
+    // checkboxes começam não selecionados
     var checkedAtLeastOne = false;
 
+    // TODO: identação
 
         //validar input de nome
         $('#name').keyup(function() {
             var input = $(this);
 
-           if( input.val() == "" ) {
+            // TODO: sem espaços dentro da condicional
+            // e if separado da condicional
+            // e o ideal é sempre utilizar o comparador triplo (identidade) (===)
+            // if (input.val() === "")
+            if( input.val() == "" ) {
                 validName = false;
                 $('#register-button').attr('disabled',true);
             }
+
+            // TODO: else deve ficar sempre na mesma linha do fechamento de chave
+            // } else { 
             else {
                 validName = true;
 
@@ -32,14 +39,13 @@ $(document).ready(function() {
                     console.log("eba!");
                     $('#register-button').attr('disabled',false);
                 }
+                // TODO: else
 
                 else {
                     console.log("falta email ou checkbox");
                     $('#register-button').attr('disabled',true);
                 }
-
             }
-
         });
 
         //validar input de email
@@ -48,12 +54,16 @@ $(document).ready(function() {
 
             if (testEmail.test(this.value)) {
                 validEmail = true;
-                 $('#email-input-container').removeClass('error');
+
+                // TODO: muito bom isso de usar classes no container :)
+                $('#email-input-container').removeClass('error');
 
                 if (validName == true && checkedAtLeastOne == true){
                     console.log("eba!");
                     $('#register-button').attr('disabled',false);
                 }
+
+                // TODO: else
                 else {
                     console.log("falta nome ou checkbox");
                     $('#register-button').attr('disabled',true);
@@ -68,10 +78,10 @@ $(document).ready(function() {
             }
         });
 
+            // checkboxes
+            // TODO: identação
 
-            //checkboxes
-
-            $('input[type="checkbox').click (function(){
+            $('input[type="checkbox').click(function(){
 
                 checkedAtLeastOne = false;
                 $('#register-button').attr('disabled',true);
@@ -83,6 +93,7 @@ $(document).ready(function() {
                         if (validEmail == true && validName == true) {
                             $('#register-button').attr('disabled',false);
                         }
+                        // TODO: else
 
                         else {
                             $('#register-button').attr('disabled',true);
@@ -93,11 +104,17 @@ $(document).ready(function() {
 
             });
 
-
-
         // submit do form
-        $( "#form-contact" ).submit(function( event ) {
+        $("#form-contact").submit(function(event) {
         // alert( "Handler for .submit() called." );
+        // TODO: remover código comentado
+        
+            event.preventDefault();
+
+            setTimeout(function () {
+                $('#loading-state').removeClass('active');
+                $('#sent-state').addClass('active');
+            }, 2000);
 
             // loading - ele quase não mostra pq não está com o back
             $("#modal-container").addClass('active');
@@ -105,8 +122,7 @@ $(document).ready(function() {
 
         });
 
-
-
+        // TODO: posicionamento do loading está
 });
 
 
