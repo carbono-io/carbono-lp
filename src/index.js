@@ -96,6 +96,34 @@ $(document).ready(function() {
     });
 
 
+    var trigger = $('#right-command'),
+        isClosed = true;
+//    var buttontoform = $('#button-to-form')
+
+// ABRIR MENU
+//    trigger.click(function () {
+//      burgerTime();
+//    });
+//
+//
+//    function burgerTime() {
+//      if (isClosed == true) {
+//        trigger.removeClass('is-open');
+//        trigger.addClass('is-closed');
+//        isClosed = false;
+//      } else {
+//        trigger.removeClass('is-closed');
+//        trigger.addClass('is-open');
+//        isClosed = true;
+//      }
+//    }
+
+//    buttontoform.click(function () {
+//      changecommandicon();
+//    });
+
+
+
 });
 
 
@@ -163,9 +191,10 @@ var setSectionHeight = function () {
 
 $('#button-to-form').click(function () {
     $('#section-form').toggleClass('active');
-    $('#header').css('display', 'none');
     window.scrollTo(0, 0);
     $('#content-wrapper').css('display', 'none');
+
+    $('#right-command').addClass('close-command');
 
     //    setar todos os values para 0 quando abre
     $('input[type="text"]').val("");
@@ -176,13 +205,13 @@ $('#button-to-form').click(function () {
         }
     });
 
-
-
 });
 
+//falta resolver: um if para dizer se o botao esta com close-command ou não. ou algo do tipo.
+$('#right-command').click(function () {
 
-$('#close-form').click(function () {
-    $('#section-form').toggleClass('active');
+    $(this).removeClass('close-command');
+    $('#section-form').removeClass('active');
     $('#header').css('display', 'flex');
     window.scrollTo(0, 0);
     $('#content-wrapper').css('display', 'inline');
@@ -200,6 +229,7 @@ $("#sent-close-button").click(function(){
     $('#content-wrapper').css('display', 'inline');
 
 });
+
 
 
 
