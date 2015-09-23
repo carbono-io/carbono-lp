@@ -15,6 +15,77 @@ $(document).ready(function() {
     // checkboxes começam não selecionados
     var checkedAtLeastOne = false;
 
+    // menu aberto começa falso
+    var openedMenu = false;
+
+    // form aberto começa falso
+    var openedForm = false;
+
+
+    //botão menu / fechar
+
+    $('#right-command').click(function () {
+        console.log(openedMenu);
+
+        if (openedMenu===false && openedForm===false) {
+
+            openedMenu = true;
+            $('#section-menu').addClass('active');
+            $('#right-command').addClass('close-command');
+            $('#content-wrapper').css('display', 'none');
+            window.scrollTo(0, 0);
+
+        } else if (openedMenu===true && openedForm===false) {
+
+            openedMenu = false;
+            $('#section-menu').removeClass('active');
+            $('#right-command').removeClass('close-command');
+            $('#content-wrapper').css('display', 'inline');
+
+        } else if (openedMenu===false && openedForm===true) {
+
+            openedForm = false;
+            $('#section-form').removeClass('active');
+            $('#right-command').removeClass('close-command');
+            $('#content-wrapper').css('display', 'inline');
+            window.scrollTo(0, 0);
+
+        }
+
+    });
+
+    $('#button-to-form').click(function () {
+
+        openedForm = true;
+        $('#section-form').toggleClass('active');
+        window.scrollTo(0, 0);
+        $('#content-wrapper').css('display', 'none');
+        $('#right-command').addClass('close-command');
+
+        //    setar todos os values para 0 quando abre
+        $('input[type="text"]').val("");
+        $('input[type="email"]').val("");
+        $('input[type="checkbox"]').each(function() {
+            if ($(this).is(":checked")) {
+                $(this).prop('checked', false);
+            }
+        });
+
+    });
+
+    $("#sent-close-button").click(function(){
+
+        openedForm = false;
+        $('#sent-state').removeClass('active');
+        $('#modal-container').removeClass('active');
+        $('#section-form').toggleClass('active');
+        $('#header').css('display', 'flex');
+        window.scrollTo(0, 0);
+        $('#content-wrapper').css('display', 'inline');
+
+    });
+
+
     // TODO: identação
 
     //validar input de nome
@@ -189,46 +260,11 @@ var setSectionHeight = function () {
 };
 
 
-$('#button-to-form').click(function () {
-    $('#section-form').toggleClass('active');
-    window.scrollTo(0, 0);
-    $('#content-wrapper').css('display', 'none');
-
-    $('#right-command').addClass('close-command');
-
-    //    setar todos os values para 0 quando abre
-    $('input[type="text"]').val("");
-    $('input[type="email"]').val("");
-    $('input[type="checkbox"]').each(function() {
-        if ($(this).is(":checked")) {
-            $(this).prop('checked', false);
-        }
-    });
-
-});
-
-//falta resolver: um if para dizer se o botao esta com close-command ou não. ou algo do tipo.
-$('#right-command').click(function () {
-
-    $(this).removeClass('close-command');
-    $('#section-form').removeClass('active');
-    $('#header').css('display', 'flex');
-    window.scrollTo(0, 0);
-    $('#content-wrapper').css('display', 'inline');
-
-});
 
 
-$("#sent-close-button").click(function(){
-    $('#sent-state').removeClass('active');
-    $('#modal-container').removeClass('active');
 
-    $('#section-form').toggleClass('active');
-    $('#header').css('display', 'flex');
-    window.scrollTo(0, 0);
-    $('#content-wrapper').css('display', 'inline');
 
-});
+
 
 
 
