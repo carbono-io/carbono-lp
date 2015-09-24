@@ -91,6 +91,10 @@ $(document).ready(function() {
     });
 
 
+
+
+
+
     //validar input de nome
     $('#name').keyup(function() {
         var input = $(this);
@@ -173,25 +177,26 @@ $(document).ready(function() {
 
 });
 
-$('#close-form').click(function () {
-    $('#section-form').toggleClass('active');
-    $('#header').css('display', 'flex');
-    window.scrollTo(0, 0);
-    $('#content-wrapper').css('display', 'inline');
+//DELETAR
+//$('#close-form').click(function () {
+//    $('#section-form').toggleClass('active');
+//    $('#header').css('display', 'flex');
+//    window.scrollTo(0, 0);
+//    $('#content-wrapper').css('display', 'inline');
+//
+//});
 
-});
-
-
-$("#sent-close-button").click(function(){
-    $('#sent-state').removeClass('active');
-    $('#modal-container').removeClass('active');
-
-    $('#section-form').toggleClass('active');
-    $('#header').css('display', 'flex');
-    window.scrollTo(0, 0);
-    $('#content-wrapper').css('display', 'inline');
-
-});
+//DELETAR
+//$("#sent-close-button").click(function(){
+//    $('#sent-state').removeClass('active');
+//    $('#modal-container').removeClass('active');
+//
+//    $('#section-form').toggleClass('active');
+//    $('#header').css('display', 'flex');
+//    window.scrollTo(0, 0);
+//    $('#content-wrapper').css('display', 'inline');
+//
+//});
 
 
 ///////////////////////
