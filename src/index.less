@@ -424,30 +424,35 @@ body {
 
         #content {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             align-items: center;
-            flex-wrap: wrap;
             margin-left: -2px;
             margin-right: -2px;
 
-            .person {
-                margin: 0 2px 72px 2px;
+            .person-row {
 
-                img {
-                    height: 300px;
-                    width: 300px;
-                    margin-bottom: 8px;
-                }
+                display: flex;
+                flex-direction: row;
 
-                .label {
-                    background-color: @light-grey;
-                    width: 60%;
-                    font-size: 14px;
-                    padding: 8px;
-                    font-weight: 700;
+                .person {
+                    margin: 0 2px 72px 2px;
+                    flex-shrink: 1;
+                    flex-grow: 1;
 
-                    &:first-child {
-                        text-transform: uppercase;
+                    img {
+                        margin-bottom: 8px;
+                    }
+
+                    .label {
+                        background-color: @light-grey;
+                        width: 60%;
+                        font-size: 14px;
+                        padding: 8px;
+                        font-weight: 700;
+
+                        &:first-child {
+                            text-transform: uppercase;
+                        }
                     }
                 }
             }
@@ -835,11 +840,39 @@ body {
     #section-03 {
 
         .text {
-            font-size: 8px;
+            font-size: 40px !important;
         }
 
     }
 
+    #section-04 {
+
+        .text {
+            font-size: 48px !important;
+        }
+
+    }
+
+    #section-05 {
+
+        .text {
+            font-size: 44px !important;
+            margin-left: 24px;
+            margin-right: 24px;
+        }
+
+    }
+
+    #section-06 {
+
+        .text {
+            font-size: 44px !important;
+            margin-left: 24px;
+            margin-right: 24px;
+
+        }
+
+    }
 
 }
 
