@@ -33,7 +33,7 @@ $(document).ready(function() {
             $('#section-menu').addClass('active');
             $('#right-command').addClass('close-command');
             $('#content-wrapper').css('display', 'none');
-            $('#logo').css('opacity', '0');
+            $('#logo').css('display', 'none');
 
         } else if (openedMenu===true && openedForm===false) {
 
@@ -41,7 +41,7 @@ $(document).ready(function() {
             $('#section-menu').removeClass('active');
             $('#right-command').removeClass('close-command');
             $('#content-wrapper').css('display', 'inline');
-            $('#logo').css('opacity', '1');
+            $('#logo').css('display', 'block');
 
         } else if (openedMenu===false && openedForm===true) {
 
@@ -50,7 +50,7 @@ $(document).ready(function() {
             $('#right-command').removeClass('close-command');
             $('#content-wrapper').css('display', 'inline');
             window.scrollTo(0, 0);
-            $('#logo').css('opacity', '1');
+            $('#logo').css('display', 'block');
 
         }
 
@@ -63,7 +63,7 @@ $(document).ready(function() {
         window.scrollTo(0, 0);
         $('#content-wrapper').css('display', 'none');
         $('#right-command').addClass('close-command');
-        $('#logo').css('opacity', '0');
+        $('#logo').css('display', 'none');
 
         //    setar todos os values para 0 quando abre
         $('input[type="text"]').val("");
@@ -82,10 +82,10 @@ $(document).ready(function() {
         $('#sent-state').removeClass('active');
         $('#modal-container').removeClass('active');
         $('#section-form').toggleClass('active');
-        $('#header').css('display', 'flex');
+//        $('#header').css('display', 'flex');
         window.scrollTo(0, 0);
         $('#content-wrapper').css('display', 'inline');
-        $('#logo').css('opacity', '1');
+        $('#logo').css('display', 'block');
 
     });
 
@@ -274,6 +274,95 @@ $(document).ready( function() {
     // instantiate scrollMagic controller
     var controller = new ScrollMagic.Controller();
 
+    
+    // scene of logo
+    var sceneLogoElements = {
+        logoC: $('#logo-c'),
+        logoBox: $('#logo-box'),
+        logoType: $('#logo-type')
+    };
+
+    var sceneLogo = new ScrollMagic.Scene().addTo(controller);
+    
+    var startLogoCHeight = sceneLogoElements.logoC.height();
+    // var startLogoCTop    = logoC.offset().top;
+    var startLogoCTop = 40;
+    // var startLogoCLeft   = logoC.offset().left;
+    var startLogoCLeft = 40;
+
+    // 3 e 14;
+
+    sceneLogo.on('progress', function (event) {
+
+       var finalLogoBoxTop = 24;
+       var finalLogoBoxLeft = 24;
+
+       var finalLogoCTop = 4 + finalLogoBoxTop;
+       var finalLogoCLeft = 4 + finalLogoBoxLeft;
+       var finalCHeight = 21;
+
+       var startLogoBoxWidth = $(window).width();
+       var finalLogoBoxWidth = 50;
+
+       var startLogoBoxHeight = $(window).height();
+       var finalLogoBoxHeight = 50;
+
+       var currentWidth = startLogoBoxWidth - ((startLogoBoxWidth - finalLogoBoxWidth) * event.progress);
+       var currentHeight = startLogoBoxHeight - ((startLogoBoxHeight - finalLogoBoxHeight) * event.progress);
+
+       // logo
+       sceneLogoElements.logoC.css({
+           height: startLogoCHeight - ((startLogoCHeight - finalCHeight) * event.progress),
+
+           top: startLogoCTop - ((startLogoCTop - finalLogoCTop) * event.progress),
+           left: startLogoCLeft - ((startLogoCLeft - finalLogoCLeft) * event.progress)
+       });
+       sceneLogoElements.logoBox.css({
+           width: currentWidth,
+           height: currentHeight,
+
+           top: finalLogoBoxTop * event.progress,
+           left: finalLogoBoxLeft * event.progress,
+       });
+
+       if (event.progress >= 1) {
+
+           var finalLogoTypeTop = 14 + finalLogoBoxTop;
+           var finalLogoTypeLeft = 3 + finalLogoBoxLeft + finalLogoBoxWidth;
+
+           sceneLogoElements.logoType.css({
+               top: finalLogoTypeTop,
+               left: finalLogoTypeLeft,
+               opacity: 1,
+           })
+       } else {
+           sceneLogoElements.logoType.css({
+               opacity: 0
+           })
+       }
+    });
+
+
+    ///////////////
+    // section01 //
+
+//    var section01Scene = new ScrollMagic.Scene({
+//       offset: 0,
+//       duration: section01.height() / 2,
+//    })
+//    .setPin(section01[0])
+//    .addTo(controller);
+//
+//    section01Scene.on('progress', function (event) {
+//       section01.css({
+//           opacity: 1 - 2 * event.progress
+//       });
+//    });
+
+    
+    
+    
+    
     // scene of section 03
     var scene3Elements = {
         section: $('#section-03'),
@@ -596,6 +685,10 @@ scene5Elements.dashedLine8[0].style.transform='translateX(' + currentTranslateDa
      * defines properties of scenes accordin to window height
      */
     function setSceneProperties() {
+        
+        sceneLogo.offset(0);
+        sceneLogo.duration($(window).height());
+        
         var scene3offSet = $('#section-03').offset().top;
         scene3.offset(scene3offSet - scene3offSet/5);
         var scene3height = $('#section-03').height();
