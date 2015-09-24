@@ -6,6 +6,7 @@ body {
 
     font-family: 'Source Sans Pro', sans-serif;
     line-height: 1.5;
+    overflow-x: hidden;
 
     #header {
         position: fixed;
@@ -102,7 +103,6 @@ body {
         line-height: 1.2;
         text-align: center;
         max-width: 750px;
-        margin-bottom: 56px;
     }
 
     .button {
@@ -213,29 +213,14 @@ body {
             max-width: 500px;
         }
 
-        img#circle-04-1 {
+        #circle-04-1 {
             top: 40%;
-            left: 70%;
+            left: 30%;
             height: 60px;
             width: 60px;
             z-index: 8;
-        }
-
-        #circle-04-2 {
-            top: 40%;
-            left: 30%;
-//            height: 60px;
-//            width: 60px;
-            z-index: 8;
-            transform: scale(1);
             background: transparent url(img/circle-04-1.svg) 50% 50%;
-        }
-
-        #circle-path {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            perspective:600;
+            transform: scale(1);
         }
 
         #solid-line-04-1{
@@ -261,26 +246,86 @@ body {
             text-align: center;
             z-index: 10;
         }
-        #dashed-line-1 {
-            top: 30%;
+        #dashed-line-05-1 {
+            top: 40%;
             left: 10%;
-            transform: translate(-50%, -50%) rotate(135deg);
-            width: 200px;
+            transform: translate(0, 0) rotate(135deg);
+            width: 400px;
         }
 
-        #solid-line-2 {
+        #solid-line-05-2 {
             top: 70%;
             left: 50%;
-            transform: translate(-50%, -50%) rotate(135deg);
+            transform: translate(0, 0) rotate(135deg);
             width: 300px;
         }
 
-        #solid-line-3 {
+        #solid-line-05-3 {
             border-color: @blue;
             top: 40%;
             left: 40%;
-            transform: translate(-50%, -50%) rotate(135deg);
+            transform: translate(0, 0) rotate(135deg);
+            width: 400px;
+        }
+
+        #solid-line-05-4 {
+            border-color: @blue;
+            border-width: 4px;
+            top: 60%;
+            left: 20%;
+            transform: translate(0, 0) rotate(135deg);
             width: 500px;
+        }
+
+        #solid-line-05-5 {
+            border-color: @gray;
+            border-width: 3px;
+            top: 40%;
+            left: 25%;
+            transform: translate(0, 0) rotate(135deg);
+            width: 200px;
+        }
+
+        #solid-line-05-6 {
+            border-color: @gray;
+            border-width: 3px;
+            top: 30%;
+            left: 70%;
+            transform: translate(0, 0) rotate(135deg);
+            width: 500px;
+        }
+
+        #solid-line-05-7 {
+            border-color: @gray;
+            top: 70%;
+            left: 20%;
+            transform: translate(0, 0) rotate(135deg);
+            width: 400px;
+        }
+
+        #dashed-line-05-8 {
+            top: 40%;
+            left: 55%;
+            transform: translate(0, 0) rotate(135deg);
+            width: 400px;
+        }
+
+        #dashed-line-05-9 {
+            border-color: @blue;
+            border-width: 2px;
+            top: 40%;
+            left: 10%;
+            transform: translate(0, 0) rotate(135deg);
+            width: 100px;
+        }
+
+        #dashed-line-05-10 {
+            border-color: @gray;
+            border-width: 3px;
+            top: 60%;
+            left: 70%;
+            transform: translate(0, 0) rotate(135deg);
+            width: 400px;
         }
     }
 
@@ -291,6 +336,47 @@ body {
             font-size: 60px;
             max-width: 450px;
             font-weight: 600;
+        }
+        #square-group {
+            position: absolute;
+            height: 160px;
+            width: 160px;
+            background-color: antiquewhite;
+            left: 10%;
+
+            .square-border{
+                position: absolute;
+                width: 100%;
+                height: 1px;
+                background-color: @black;
+            }
+
+            #square-top {
+                background-color: blue;
+                left: 0;
+                top: 0;
+            }
+
+            #square-right {
+                transform: rotateZ(90deg);
+                background-color: red;
+                left: 50%;
+                top: 50%;
+            }
+            #square-bottom {
+                background-color: purple;
+                left: 0;
+                top: 100%;
+            }
+
+            #square-left {
+                transform: rotateZ(90deg);
+                background-color: olive;
+                left: -50%;
+                top: 50%;
+            }
+
+
         }
 
     }
