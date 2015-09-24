@@ -20,17 +20,77 @@ body {
         align-items: center;
         color: @menu-color;
 
-        #logo {
+        #logo-c {
             margin: 40px 40px 0 40px;
-            img {
-                height: 64px;
-            }
+            background-image: "img/logo-01.svg";
+
         }
 
-        #menu {
+        #right-command {
             margin: 40px;
+            cursor: pointer;
+
+
+            .command-path {
+
+
+                stroke:white;
+
+                -webkit-transform:rotate(0) translateY(0) translateX(0);
+                transform:rotate(0) translateY(0) translateX(0);
+                opacity:1;
+
+
+
+                -webkit-transition: -webkit-transform 0.4s ease-in-out, opacity 0.2s ease-in-out;
+                transition: transform 0.4s ease-in-out, opacity 0.2s ease-in-out;
+
+                &:nth-of-type(1) {
+                    -webkit-transform-origin: 1% 1%;
+                    transform-origin: 1% 1%;
+                }
+
+               &:nth-of-type(3) {
+                    -webkit-transform-origin: 1% 1%;
+                    transform-origin: 1% 1%;
+               }
+
+            }
+
+
+            &.close-command {
+
+                .command-path{
+
+                    stroke:black;
+
+                    &:nth-of-type(1) {
+
+                        -webkit-transform:rotate(45deg) translateY(0em) translateX(0em);
+                        transform:rotate(45deg) translateY(0em) translateX(0em);
+                    }
+
+
+
+                    &:nth-of-type(2) {
+                        opacity:0;
+                    }
+
+                    &:nth-of-type(3) {
+                        -webkit-transform:rotate(-45deg) translateY(0em) translateX(0em);
+                        transform:rotate(-45deg) translateY(0em) translateX(0em);
+                    }
+
+                }
+            }
+
         }
-    }
+
+
+
+        }
+
+
 
     h1 {
         color: @white;
@@ -49,6 +109,7 @@ body {
         padding: 0 56px;
         box-sizing: border-box;
         border: 1px solid @blue;
+
     }
 
     a {
@@ -361,7 +422,7 @@ body {
                 img {
                     height: 300px;
                     width: 300px;
-                    margin-bottom: 16px;
+                    margin-bottom: 8px;
                 }
 
                 .label {
@@ -378,6 +439,27 @@ body {
             }
         }
     }
+
+    #section-menu {
+
+        display: none;
+
+        &.active {
+
+            background-color: @light-grey;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all ease 0.3s;
+
+            h2 {
+                font-size: 24pt;
+            }
+
+        }
+
+    }
+
 
     // Formulário de inscrição
     #section-form {
@@ -434,9 +516,6 @@ body {
                                   animation: sk-rotateplane 1.2s infinite ease-in-out;
                                 }
 
-                                // TODO: top a animação
-                                // verificar se precisa dos prefixos de webkit
-                                // e verificar se funciona nos navegadores: firefox, chrome, safari e celular
 
                                 @-webkit-keyframes sk-rotateplane {
                                   0% { -webkit-transform: perspective(120px) }
@@ -522,14 +601,6 @@ body {
                 #logo {
                     margin-left:40px;
                     margin-top:40px;
-
-                }
-
-                #close-form {
-
-                    margin-right:40px;
-                    margin-top:40px;
-                    cursor:pointer;
 
                 }
 
