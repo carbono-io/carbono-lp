@@ -149,7 +149,7 @@ body {
 
     // Democratizar o desenvolvimento de tecnologia da informação
     #section-03 {
-        background-color: aquamarine;
+//        background-color: aquamarine;
         .text {
             font-size: 80px;
             line-height: 1.4;
@@ -175,6 +175,7 @@ body {
             border-radius: 50%;
             top: 10%;
             left: 80%;
+            transform: translate(0, 0);
         }
 
         #circle-03-2 {
@@ -186,6 +187,7 @@ body {
             top: 20%;
             left: 70%;
             background-color: transparent;
+            transform: translate(0, 0);
         }
     }
 
@@ -207,26 +209,31 @@ body {
             z-index: 8;
             background: transparent url(img/circle-04-1.svg) 50% 50%;
             transform: scale(1);
+            transition: opacity 0.6s;
+        }
+
+        .fade-out {
+            opacity: 0;
         }
 
         #solid-line-04-1{
-            width: 10%;
-            top: 20%;
-            left: 80%;
-            transform: translate(-50%, 0) rotate(135deg);
+            width: 50px;
+            top: 25%;
+            left: 75%;
+            transform: translate(0, 0) rotate(135deg);
         }
 
         #solid-line-04-2{
-            width: 10%;
-            top: 80%;
-            left: 20%;
-            transform: translate(-50%, 0) rotate(135deg);
+            width: 50px;
+            top: 75%;
+            left: 25%;
+            transform: translate(0, 0) rotate(135deg);
         }
     }
 
     // Diminuir a barreira para o desenvolvimento de aplicações
     #section-05 {
-        background-color: yellow;
+//        background-color: yellow;
         .text {
             font-size: 60px;
             text-align: center;
@@ -317,7 +324,7 @@ body {
 
     // Contribuir para a transformação do futuro
     #section-06 {
-        background-color: orange;
+//        background-color: orange;
         .text {
             font-size: 60px;
             max-width: 450px;
@@ -327,7 +334,7 @@ body {
             position: absolute;
             height: 160px;
             width: 160px;
-            background-color: antiquewhite;
+//            background-color: antiquewhite;
             left: 10%;
 
             .square-border{
@@ -338,28 +345,27 @@ body {
             }
 
             #square-top {
-                background-color: blue;
                 left: 0;
                 top: 0;
             }
 
             #square-right {
                 transform: rotateZ(90deg);
-                background-color: red;
                 left: 50%;
                 top: 50%;
+                transition: height 2s, background-color 1s;
             }
             #square-bottom {
-                background-color: purple;
                 left: 0;
                 top: 100%;
+                transition: background-color 2s;
             }
 
             #square-left {
                 transform: rotateZ(90deg);
-                background-color: olive;
                 left: -50%;
                 top: 50%;
+                transition: background-color 2s;
             }
 
 
@@ -400,7 +406,7 @@ body {
 
     #section-aboutus {
         width: 80%;
-        margin: 0 auto;
+        margin: 40% auto 0 auto;
 
         #title {
             font-size: 66px;
