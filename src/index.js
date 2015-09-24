@@ -239,14 +239,11 @@ $(window).resize(function() {
 
 
 var setSectionHeight = function () {
-<<<<<<< HEAD
+
     var windowHeight = $(window ).height();
 
     if (windowHeight>=400) {
 
-=======
-    var windowHeight = $(window).height();
->>>>>>> origin/master
     var currentHeight = $(".sections").css('height', windowHeight);
     var currentHeightmodal = $("#modal-container").css('height', windowHeight);
 
