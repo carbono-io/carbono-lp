@@ -391,17 +391,17 @@ $(document).ready( function() {
     scene3.on('progress', function(event){
 //        console.log('scene 3 progress: ' + event.progress)
         var currentRotationDasshedLine = rotationDashedLine * event.progress;
-        scene3Elements.dashedLine[0].style.transform='rotate(-' + currentRotationDasshedLine + 'deg)';
+        scene3Elements.dashedLine.css('transform', 'rotate(-' + currentRotationDasshedLine + 'deg)')
 
         var currentTranslateXcircle1 = translateXcircle1 * event.progress;
         var currentTranslateYcircle1 = translateYcircle1 * event.progress;
-        scene3Elements.circle1[0].style.transform='translate(' + currentTranslateXcircle1 + 'px, -' + currentTranslateYcircle1 +'px)';
+        scene3Elements.circle1.css('transform', 'translate(' + currentTranslateXcircle1 + 'px, -' + currentTranslateYcircle1 +'px)');
 
         var currentTranslateXcircle2 = translateXcircle2 * event.progress;
         var currentTranslateYcircle2 = translateYcircle2 * event.progress;
         var currentScaleCircle2 = scaleCircle2 * event.progress;
-//        scene3Elements.circle2[0].style.transform='translate(' + currentTranslateXcircle2 + 'px, -' + currentTranslateYcircle2 +'px) scale(' + currentScaleCircle2 + ')';
-        scene3Elements.circle2[0].style.transform='translate(' + currentTranslateXcircle2 + 'px, -' + currentTranslateYcircle2 +'px)';
+//        scene3Elements.circle2.css('transform', 'translate(' + currentTranslateXcircle2 + 'px, -' + currentTranslateYcircle2 +'px) scale(' + currentScaleCircle2 + ')');
+        scene3Elements.circle2.css('transform', 'translate(' + currentTranslateXcircle2 + 'px, -' + currentTranslateYcircle2 +'px)');
     });
 
 
@@ -455,14 +455,14 @@ $(document).ready( function() {
             $(scene4Elements.circle[0]).removeClass('fade-out');
         }
 
-        scene4Elements.circle[0].style.transform='scale(' + currentScaleCircle +')';
-        scene4Elements.line1[0].style.transform='translateX(' + currentTranslateXLine1 + 'px) translateY(' + currentTranslateYLine1 + 'px) rotate(135deg)';
+        scene4Elements.circle.css('transform', 'scale(' + currentScaleCircle +')');
+        scene4Elements.line1.css('transform', 'translateX(' + currentTranslateXLine1 + 'px) translateY(' + currentTranslateYLine1 + 'px) rotate(135deg)');
 
-        scene4Elements.line1[0].style.width= currentWidthLine + 'px';
+        scene4Elements.line1.css('width', currentWidthLine + 'px');
 
-        scene4Elements.line2[0].style.transform = 'translateX(' + currentTranslateXLine2 + 'px) translateY(' + currentTranslateYLine2 + 'px) rotate(135deg)';
+        scene4Elements.line2.css('transform', 'translateX(' + currentTranslateXLine2 + 'px) translateY(' + currentTranslateYLine2 + 'px) rotate(135deg)');
 
-        scene4Elements.line2[0].style.width= currentWidthLine + 'px';
+        scene4Elements.line2.css('width', currentWidthLine + 'px');
     });
 
     // scene of section 05
@@ -514,24 +514,24 @@ $(document).ready( function() {
         var minScale = 1;
 
         scene5Elements.text[0].style.opacity= currentOpacity;
-        scene5Elements.dashedLine1[0].style.transform='translateX(' + currentTranslateDashedLine1 +'px) translateY(-' + currentTranslateDashedLine1 +'px) rotate(135deg)';
+        scene5Elements.dashedLine1.css('transform', 'translateX(' + currentTranslateDashedLine1 +'px) translateY(-' + currentTranslateDashedLine1 +'px) rotate(135deg)');
 
-        scene5Elements.solidLine2[0].style.transform='translate(' + currentTranslateSolidLine2 +'px, -' + currentTranslateSolidLine2 +'px) rotate(135deg)';
+        scene5Elements.solidLine2.css('transform', 'translate(' + currentTranslateSolidLine2 +'px, -' + currentTranslateSolidLine2 +'px) rotate(135deg)');
 
-        scene5Elements.solidLine3[0].style.transform='translate(' + currentTranslateSolidLine3 +'px, -' + currentTranslateSolidLine3 +'px) rotate(135deg)';
+        scene5Elements.solidLine3.css('transform', 'translate(' + currentTranslateSolidLine3 +'px, -' + currentTranslateSolidLine3 +'px) rotate(135deg)');
 
-        scene5Elements.solidLine4[0].style.transform='translate(-' + currentTranslateSolidLine4 +'px, ' + currentTranslateSolidLine4 +'px) rotate(135deg)';
+        scene5Elements.solidLine4.css('transform', 'translate(-' + currentTranslateSolidLine4 +'px, ' + currentTranslateSolidLine4 +'px) rotate(135deg)');
 
-        scene5Elements.solidLine5[0].style.transform='translate(-' + currentTranslateSolidLine5 +'px, ' + currentTranslateSolidLine5 +'px) rotate(135deg)';
+        scene5Elements.solidLine5.css('transform', 'translate(-' + currentTranslateSolidLine5 +'px, ' + currentTranslateSolidLine5 +'px) rotate(135deg)');
 
-        scene5Elements.solidLine6[0].style.transform='translate(' + currentTranslateSolidLine5 +'px, -' + currentTranslateSolidLine5 +'px) rotate(135deg)';
+        scene5Elements.solidLine6.css('transform', 'translate(' + currentTranslateSolidLine5 +'px, -' + currentTranslateSolidLine5 +'px) rotate(135deg)');
 
-        scene5Elements.solidLine7[0].style.transform='translate(-' + currentTranslateSolidLine5 +'px, ' + currentTranslateSolidLine5 +'px) rotate(135deg)';
+        scene5Elements.solidLine7.css('transform', 'translate(-' + currentTranslateSolidLine5 +'px, ' + currentTranslateSolidLine5 +'px) rotate(135deg)');
 
-scene5Elements.dashedLine8[0].style.transform='translateX(' + currentTranslateDashedLine8 +'px) translateY(-' + currentTranslateDashedLine8 +'px) rotate(135deg)';
+        scene5Elements.dashedLine8.css('transform', 'translateX(' + currentTranslateDashedLine8 +'px) translateY(-' + currentTranslateDashedLine8 +'px) rotate(135deg)');
 
- scene5Elements.dashedLine9[0].style.transform='translateX(' + currentTranslateDashedLine9 +'px) translateY(-' + currentTranslateDashedLine9 +'px) rotate(135deg)';
-        scene5Elements.dashedLine10[0].style.transform='translateX(' + currentTranslateDashedLine10 +'px) translateY(-' + currentTranslateDashedLine10 +'px) rotate(135deg)';
+        scene5Elements.dashedLine9.css('transform', 'translateX(' + currentTranslateDashedLine9 +'px) translateY(-' + currentTranslateDashedLine9 +'px) rotate(135deg)');
+        scene5Elements.dashedLine10.css('transform', 'translateX(' + currentTranslateDashedLine10 +'px) translateY(-' + currentTranslateDashedLine10 +'px) rotate(135deg)');
     });
 
     // scene of section 06
@@ -607,12 +607,12 @@ scene5Elements.dashedLine8[0].style.transform='translateX(' + currentTranslateDa
         var currentSquareScale = squareFinal.scale * event.progress;
         var currentSquareTranslateX = squareFinal.translateX * event.progress;
         var currentSquareTranslateY = squareFinal.translateY * event.progress;
-        scene6Elements.square.style.transform= [
+        $(scene6Elements.square).css('transform', [
             'rotateZ(' + currentSquareRotateZ + 'deg)',
             'scale(' + currentSquareScale + ')',
             'translateX(' + currentSquareTranslateX + 'px)',
             'translateY(' + currentSquareTranslateY + 'px)',
-        ].join(' ');
+        ].join(' '));
     });
 
     var scene6b = new ScrollMagic.Scene().addTo(controller);
@@ -638,49 +638,49 @@ scene5Elements.dashedLine8[0].style.transform='translateX(' + currentTranslateDa
         var currentBottomTranslateY = squareFinal.bottom.translateY * progress;
         var currentLeftTranslateY = squareFinal.left.translateY * progress;
 
-        scene6Elements.squareTop.style.transform= [
+        $(scene6Elements.squareTop).css('transform', [
             'rotateZ(' + currentTopRotateZ + 'deg)',
             'translateX(' + currentTopTranslateX + 'px)',
             'translateY(' + currentTopTranslateY + 'px)'
-        ].join(' ');
+        ].join(' '));
 
-        scene6Elements.squareRight.style.transform= [
+        $(scene6Elements.squareRight).css('transform', [
             'rotateZ(' + currentRightRotateZ + 'deg)',
             'translateX(' + currentRightTranslateX + 'px)',
             'translateY(' + currentRightTranslateY + 'px)'
-        ].join(' ');
+        ].join(' '));
 
-        scene6Elements.squareBottom.style.transform= [
+        $(scene6Elements.squareBottom).css('transform', [
             'rotateZ(' + currentBottomRotateZ + 'deg)',
             'translateX(' + currentBottomTranslateX + 'px)',
             'translateY(' + currentBottomTranslateY + 'px)'
-        ].join(' ');
+        ].join(' '));
 
-        scene6Elements.squareLeft.style.transform= [
+        $(scene6Elements.squareLeft).css('transform', [
             'rotateZ(' + currentLeftRotateZ + 'deg)',
             'translateX(' + currentLeftTranslateX + 'px)',
             'translateY(' + currentLeftTranslateY + 'px)'
-        ].join(' ');
+        ].join(' '));
 
         if (progress > 0.3) {
-            scene6Elements.squareLeft.style.backgroundColor='#00FFFF';
+            $(scene6Elements.squareLeft).css('backgroundColor', '#00FFFF');
 
-            scene6Elements.squareBottom.style.borderTop='1px dashed #000000';
-            scene6Elements.squareBottom.style.backgroundColor='transparent';
+            $(scene6Elements.squareBottom).css('borderTop', '1px dashed #000000');
+            $(scene6Elements.squareBottom).css('backgroundColor', 'transparent');
 
-            scene6Elements.squareRight.style.height='3px';
-            scene6Elements.squareRight.style.backgroundColor='#E6E6E6';
+            $(scene6Elements.squareRight).css('height', '3px');
+            $(scene6Elements.squareRight).css('backgroundColor', '#E6E6E6');
         } else {
-            scene6Elements.squareLeft.style.backgroundColor='#000000';
+            $(scene6Elements.squareLeft).css('backgroundColor', '#000000');
 
-            scene6Elements.squareBottom.style.borderTop='none';
-            scene6Elements.squareBottom.style.backgroundColor='#000000';
+            $(scene6Elements.squareBottom).css('borderTop', 'none');
+            $(scene6Elements.squareBottom).css('backgroundColor', '#000000');
 
-            scene6Elements.squareRight.style.height='1px';
-            scene6Elements.squareRight.style.backgroundColor='#000000';
+            $(scene6Elements.squareRight).css('height', '1px');
+            $(scene6Elements.squareRight).css('backgroundColor', '#000000');
         }
 
-        });
+    });
 
 
 
