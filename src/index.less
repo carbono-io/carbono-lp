@@ -423,24 +423,19 @@ body {
         }
 
         #content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-left: -2px;
-            margin-right: -2px;
 
-            .person-row {
-
-                display: flex;
-                flex-direction: row;
+                text-align: center;
 
                 .person {
-                    margin: 0 2px 72px 2px;
-                    flex-shrink: 1;
-                    flex-grow: 1;
+                    margin: 0 0 72px 0;
+                    width: 33%;
+                    max-width: 300px;
+                    display: inline-block;
+                    vertical-align: top;
 
                     img {
                         margin-bottom: 8px;
+                        width: 100%;
                     }
 
                     .label {
@@ -449,13 +444,15 @@ body {
                         font-size: 14px;
                         padding: 8px;
                         font-weight: 700;
+                        text-align: left;
 
-                        &:first-child {
-                            text-transform: uppercase;
+                        div {
+                            &:first-child {
+                                text-transform: uppercase;
+                            }
                         }
                     }
                 }
-            }
         }
     }
 
@@ -941,7 +938,7 @@ body {
 
 
 // BROWSER
-@media (min-width: 501px) and (max-width: 800px) {
+@media (min-width: 501px) and (max-width: 910px) {
 
     #section-01 {
         h1 {
@@ -954,11 +951,27 @@ body {
         }
     }
 
-    #section-02 {
+    #section-03 {
 
-//        .text {
-//            font-size: 8px !important;
-//        }
+        .text {
+            font-size: 60px !important;
+        }
+
+    }
+
+    #section-05 {
+
+        .text {
+            font-size: 54px !important;
+        }
+
+    }
+
+    #section-aboutus {
+
+        .person {
+            width: 48% !important;
+        }
 
     }
 }
@@ -973,6 +986,24 @@ body {
             margin: 88px 24px 24px 24px;
         }
     }
+
+    #section-03 {
+
+        .text {
+            font-size: 46px !important;
+        }
+
+    }
+
+    #section-05 {
+
+        .text {
+            font-size: 54px !important;
+        }
+
+    }
+
+
 }
 
 
