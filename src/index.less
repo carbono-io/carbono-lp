@@ -188,7 +188,7 @@ body {
     #section-03 {
 //        background-color: aquamarine;
         .text {
-            font-size: 80px;
+            font-size: 60px;
             line-height: 1.4;
             width: 80%;
             font-weight: 600;
@@ -197,7 +197,7 @@ body {
         }
         #dashed-line-03-1 {
             left: 50%;
-            top: -10%;
+            top: 0;
             position: absolute;
             width: 0;
             height: 120%;
@@ -210,7 +210,7 @@ body {
             height: 200px;
             width: 200px;
             border-radius: 50%;
-            top: 10%;
+            top: 45%;
             left: 80%;
             transform: translate(0, 0);
         }
@@ -221,7 +221,7 @@ body {
             z-index: 6;
             border-radius: 50%;
             border: 1px solid @black;
-            top: 20%;
+            top: 60%;
             left: 70%;
             background-color: transparent;
             transform: translate(0, 0);
@@ -367,6 +367,8 @@ body {
             font-size: 60px;
             max-width: 450px;
             font-weight: 600;
+            margin-left: 24px;
+            margin-right: 24px;
         }
         #square-group {
             position: absolute;
@@ -411,9 +413,6 @@ body {
 
     }
 
-    .to-animate {
-        position: absolute;
-    }
 
     // style of all solid-lines
     .solid-line {
@@ -842,8 +841,8 @@ body {
 // ~~~~~MEDIA QUERIES~~~~~
 
 
-// MOBILE LARGURA ENTRE 361 - 750
-@media screen and (min-device-width: 361px) and (max-device-width: 750px) {
+// MOBILE LARGURA MAIOR QUE 361
+@media screen and (min-device-width: 361px) {
 
     #section-01 {
         h1 {
@@ -903,6 +902,11 @@ body {
 
     #section-aboutus {
 
+
+        #title {
+            font-size: 48px !important;
+        }
+
         .person {
             width: 48% !important;
             font-size: 12px !important;
@@ -949,6 +953,15 @@ body {
         }
 
     }
+
+    #section-03 {
+
+        .text {
+            font-size: 22px !important;
+
+        }
+
+    }
 }
 
 
@@ -974,7 +987,6 @@ body {
                 }
         }
     }
-
 
 }
 
@@ -1005,6 +1017,14 @@ body {
 
         .text {
             font-size: 54px !important;
+        }
+
+    }
+
+    #section-06 {
+
+        .text {
+            font-size: 52px !important;
         }
 
     }
@@ -1041,6 +1061,22 @@ body {
 
         .text {
             font-size: 54px !important;
+        }
+
+    }
+
+    #section-06 {
+
+        .text {
+            font-size: 48px !important;
+        }
+
+    }
+
+    #section-aboutus {
+
+        .person {
+            width: 48% !important;
         }
 
     }
