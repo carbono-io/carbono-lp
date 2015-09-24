@@ -50,6 +50,7 @@ $(document).ready(function() {
             $('#right-command').removeClass('close-command');
             $('#content-wrapper').css('display', 'inline');
             window.scrollTo(0, 0);
+            $('#logo').css('opacity', '1');
 
         }
 
@@ -62,6 +63,7 @@ $(document).ready(function() {
         window.scrollTo(0, 0);
         $('#content-wrapper').css('display', 'none');
         $('#right-command').addClass('close-command');
+        $('#logo').css('opacity', '0');
 
         //    setar todos os values para 0 quando abre
         $('input[type="text"]').val("");
@@ -83,6 +85,7 @@ $(document).ready(function() {
         $('#header').css('display', 'flex');
         window.scrollTo(0, 0);
         $('#content-wrapper').css('display', 'inline');
+        $('#logo').css('opacity', '1');
 
     });
 
@@ -236,9 +239,21 @@ $(window).resize(function() {
 
 
 var setSectionHeight = function () {
-    var windowHeight = $(window).height();
+
+    var windowHeight = $(window ).height();
+
+    if (windowHeight>=400) {
+
     var currentHeight = $(".sections").css('height', windowHeight);
     var currentHeightmodal = $("#modal-container").css('height', windowHeight);
+
+    } else {
+
+    var currentHeight = $(".sections").css('height', '400px');
+    var currentHeightmodal = $("#modal-container").css('height', '400px');
+
+    }
+
 };
 
 
