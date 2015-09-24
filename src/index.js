@@ -381,10 +381,10 @@ $(document).ready( function() {
     var scene3 = new ScrollMagic.Scene().addTo(controller);
 
     var rotationDashedLine = 90;
-    var translateXcircle1 = 100;
-    var translateYcircle1 = 50;
+    var translateXcircle1 = 20;
+    var translateYcircle1 = 70;
     var translateXcircle2 = 20;
-    var translateYcircle2 = 150;
+    var translateYcircle2 = 160;
     var scaleCircle2 = 3;
 
 
