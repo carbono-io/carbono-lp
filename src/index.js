@@ -25,7 +25,6 @@ $(document).ready(function() {
     //botão menu / fechar
 
     $('#right-command').click(function () {
-        console.log(openedMenu);
 
         if (openedMenu===false && openedForm===false) {
 
@@ -33,7 +32,7 @@ $(document).ready(function() {
             $('#section-menu').addClass('active');
             $('#right-command').addClass('close-command');
             $('#content-wrapper').css('display', 'none');
-            window.scrollTo(0, 0);
+            $('#logo').css('opacity', '0');
 
         } else if (openedMenu===true && openedForm===false) {
 
@@ -41,6 +40,7 @@ $(document).ready(function() {
             $('#section-menu').removeClass('active');
             $('#right-command').removeClass('close-command');
             $('#content-wrapper').css('display', 'inline');
+            $('#logo').css('opacity', '1');
 
         } else if (openedMenu===false && openedForm===true) {
 
