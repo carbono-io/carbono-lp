@@ -67,12 +67,11 @@
         </div>
 
         <div id="section-menu">
-            <h2>home</h2>
-            <h2>o projeto</h2>
-            <h2>manifesto</h2>
-            <h2>sobre nós</h2>
-            <h2>contato</h2>
-
+            <h2 data-i18n="menu.home">home</h2>
+            <h2 data-i18n="menu.theProject">o projeto</h2>
+            <h2 data-i18n="menu.manifest">manifesto</h2>
+            <h2 data-i18n="menu.aboutUs">sobre nós</h2>
+            <h2 data-i18n="menu.contact">contato</h2>
         </div>
 
         <div id="section-form">
@@ -84,7 +83,7 @@
                 </div>
 
                 <div id="sent-state">
-                    <h2>Sua inscrição foi realizada!<br><span>Em breve entraremos em contato.</span></h2>
+                    <h2 data-i18n="betaForm.submitSuccess">Sua inscrição foi realizada!<br><span>Em breve entraremos em contato.</span></h2>
                     <button class="button" id="sent-close-button">Ok</button>
                 </div>
 
@@ -93,37 +92,79 @@
 
             <form id="form-contact" action="" method="">
 
-                    <h2>Quer ser um dos primeiros a testar
+                    <h2 data-i18n="betaForm.betaInvite">Quer ser um dos primeiros a testar
 a versão beta?<br> Se inscreva aqui!</h2>
 
                     <div class="input-container" id="name-input-container">
-                        <input type="text" placeholder="nome*" name="nome" id="name" class= "register-data">
+                        <input type="text" data-i18n="[placeholder]betaForm.namePlaceholder" placeholder="nome*" name="nome" id="name" class= "register-data">
                     </div>
 
                     <div class="input-container" id="email-input-container">
-                        <input type="email" placeholder="e-mail*" name="email" id="email" class= "register-data">
-                    <div class="email-error active"><p>Seu e-mail não está correto. Ele deve seguir o formato: exemplo@exemplo.com</p></div>
+                        <input type="email" data-i18n="[placeholder]betaForm.emailPlaceholder" placeholder="e-mail*" name="email" id="email" class= "register-data">
+                    <div class="email-error active"><p data-i18n="betaForm.invalidEmail">Seu e-mail não está correto. Ele deve seguir o formato: exemplo@exemplo.com</p></div>
                     </div>
 
                 <div class="experience-area" >
 
-                    <p>Geralmente, quais papeis você desempenha na criação de aplicações?* (Preencha pelo menos uma opção)</p>
+                    <p data-i18n="betaForm.whatDoYouDo">Geralmente, quais papeis você desempenha na criação de aplicações?* (Preencha pelo menos uma opção)</p>
 
-                        <label><div class="experience-checkbox-area "><input type="checkbox" name="checkbox" value="1" >Tenho ideias de aplicações</div></label>
+                    <label>
+                        <div class="experience-checkbox-area ">
+                            <input type="checkbox" name="checkbox" value="1">
+                            <span data-i18n="betaForm.haveAnIdea">
+                                Tenho ideias de aplicações
+                            </span>
+                        </div>
+                    </label>
 
-                        <label><div class="experience-checkbox-area"><input type="checkbox" name="checkbox" value="2">Crio o design das telas</div></label>
+                    <label>
+                        <div class="experience-checkbox-area">
+                            <input type="checkbox" name="checkbox" value="2">
+                            <span data-i18n="betaForm.designTheLayout">
+                                Crio o design das telas
+                            </span>
+                        </div>
+                    </label>
 
-                        <label><div class="experience-checkbox-area "><input type="checkbox" name="checkbox" value="3">Desenvolvo protótipos navegáveis </div></label>
+                    <label>
+                        <div class="experience-checkbox-area ">
+                            <input type="checkbox" name="checkbox" value="3">
+                            <span data-i18n="betaForm.developPrototypes">
+                                Desenvolvo protótipos navegáveis
+                            </span>
+                        </div>
+                    </label>
 
-                    <label><div class="experience-checkbox-area"><input type="checkbox" name="checkbox" value="4">Desenvolvo o front-end </div></label>
+                    <label>
+                        <div class="experience-checkbox-area">
+                            <input type="checkbox" name="checkbox" value="4">
+                            <span data-i18n="betaForm.developFrontEnd">
+                                Desenvolvo o front-end 
+                            </span>
+                        </div>
+                    </label>
 
-                    <label><div class="experience-checkbox-area"><input type="checkbox" name="checkbox" value="5">Desenvolvo o back-end</div></label>
+                    <label>
+                        <div class="experience-checkbox-area">
+                            <input type="checkbox" name="checkbox" value="5">
+                            <span data-i18n="betaForm.developBackend">
+                                Desenvolvo o back-end
+                            </span>
+                        </div>
+                    </label>
 
-                    <label><div class="experience-checkbox-area"><input type="checkbox" name="checkbox" value="6">Ainda não tenho experiência com criação de aplicações</div></label>
+                    <label>
+                        <div class="experience-checkbox-area">
+                            <input type="checkbox" name="checkbox" value="6">
+                            <span data-i18n="betaForm.noExperienceWithDevelopment">
+                                Ainda não tenho experiência com criação de aplicações
+                            </span>
+                        </div>
+                    </label>
 
                 </div>
 
-                <input type="submit" value="Enviar inscrição" id="register-button">
+                <input type="submit" data-i18n="[value]betaForm.submit" value="Enviar inscrição" id="register-button">
 
 
 
@@ -135,24 +176,25 @@ a versão beta?<br> Se inscreva aqui!</h2>
         <div id="content-wrapper">
 
             <div id="section-01" class="sections">
-                <h1>Transforme suas ideias em
-        aplicações poderosas.</h1>
+                <h1 data-i18n="manifest.transformIdeas">
+                    Transforme suas ideias em aplicações poderosas.
+                </h1>
                 <a href="#section-form">
-                    <div id="button-to-form" class="button">
-                    quero testar versão beta
+                    <div id="button-to-form" class="button" data-i18n="tryBeta">
+                        quero testar versão beta
                     </div>
                 </a>
             </div>
 
             <div id="section-02" class="sections">
-                <div class="text">
+                <div class="text" data-i18n="manifest.theProject">
                 A Carbono permitirá a você construir sistemas de informação na forma de sites, aplicativos, entre outros. Não há limites, independente do seu nível de conhecimento em programação e design.
 
                 </div>
             </div>
 
             <div id="section-03" class="sections">
-                <div class="text">
+                <div class="text" data-i18n="manifest.democratizeDevelopment">
                     Democratizar o desenvolvimento de tecnologia da informação
                 </div>
                 <div
@@ -172,7 +214,7 @@ a versão beta?<br> Se inscreva aqui!</h2>
             </div>
 
             <div id="section-04" class="sections">
-                <div class="text">
+                <div class="text" data-i18n="manifest.enpowerPeople">
                     Empoderar pessoas de diferentes áreas do conhecimento
                 </div>
                 <div id="circle-04-1" class="circle"></div>
@@ -181,8 +223,8 @@ a versão beta?<br> Se inscreva aqui!</h2>
             </div>
 
             <div id="section-05" class="sections">
-                <div class="text" id="text-05-1">
-                    Diminuir a barreira para o<br /> desenvolvimento de aplicações
+                <div class="text" id="text-05-1" data-i18n="manifest.lowerBarriers">
+                    Diminuir a barreira para o<br> desenvolvimento de aplicações
                 </div>
                 <div class="dashed-line" id="dashed-line-05-1"></div>
                 <div class="solid-line" id="solid-line-05-2"></div>
@@ -198,7 +240,7 @@ a versão beta?<br> Se inscreva aqui!</h2>
             </div>
 
             <div id="section-06" class="sections">
-                <div class="text">
+                <div class="text" data-i18n="manifest.transformTheFuture">
                     Contribuir para a transformação do futuro
                 </div>
                 <div id=square-group>
@@ -210,80 +252,78 @@ a versão beta?<br> Se inscreva aqui!</h2>
             </div>
 
             <div id="section-aboutus">
-                <div id="title">
+                <div id="title" data-i18n="menu.aboutUs">
                     sobre nós
                 </div>
                 <div id="content">
-
-                        <div class="person">
-                            <img src="img/aboutus/russo01.png">
-                            <div class="label">
-                                <div>Eduardo Russo</div>
-                                <div>Gerente de produto</div>
-                            </div>
+                    <div class="person">
+                        <img src="img/aboutus/russo01.png">
+                        <div class="label">
+                            <div>Eduardo Russo</div>
+                            <div data-i18n="people.productManager">Gerente de produto</div>
                         </div>
-                        <div class="person">
-                            <img src="img/aboutus/giulian02.png">
-                            <div class="label">
-                                <div>Giulian Luz</div>
-                                <div>Archops</div>
-                            </div>
+                    </div>
+                    <div class="person">
+                        <img src="img/aboutus/giulian02.png">
+                        <div class="label">
+                            <div>Giulian Luz</div>
+                            <div data-i18n="people.archops">Archops</div>
                         </div>
-                        <div class="person">
-                            <img src="img/aboutus/gm01.png">
-                            <div class="label">
-                                <div>Guilherme Marques</div>
-                                <div>Engenheiro de sistemas</div>
-                            </div>
+                    </div>
+                    <div class="person">
+                        <img src="img/aboutus/gm01.png">
+                        <div class="label">
+                            <div>Guilherme Marques</div>
+                            <div>Engenheiro de sistemas</div>
                         </div>
-
-                        <div class="person">
-                            <img src="img/aboutus/guisa01.png">
-                            <div class="label">
-                                <div>Guilherme Santarosa</div>
-                                <div>Visionário</div>
-                            </div>
+                    </div>
+                    <div class="person">
+                        <img src="img/aboutus/guisa01.png">
+                        <div class="label">
+                            <div>Guilherme Santarosa</div>
+                            <div>Visionário</div>
                         </div>
-                        <div class="person">
-                            <img src="img/aboutus/luci01.png">
-                            <div class="label">
-                                <div>Luciana Heuko</div>
-                                <div>Designer</div>
-                            </div>
+                    </div>
+                    <div class="person">
+                        <img src="img/aboutus/luci01.png">
+                        <div class="label">
+                            <div>Luciana Heuko</div>
+                            <div data-i18n="people.designer">Designer</div>
                         </div>
-                        <div class="person">
-                            <img src="img/aboutus/pat01.png">
-                            <div class="label">
-                                <div>Patricia Jenny</div>
-                                <div>Designer</div>
-                            </div>
+                    </div>
+                    <div class="person">
+                        <img src="img/aboutus/pat01.png">
+                        <div class="label">
+                            <div>Patricia Jenny</div>
+                            <div data-i18n="people.designer">Designer</div>
                         </div>
+                    </div>
 
                     <div class="person">
                         <img src="img/aboutus/paul01.png">
                         <div class="label">
                             <div>Paul Depraz</div>
-                            <div>Analista de sistemas</div>
+                            <div data-i18n="people.systemAnalyst">Analista de sistemas</div>
                         </div>
                     </div>
                     <div class="person">
                         <img src="img/aboutus/renan01.png">
                         <div class="label">
                             <div>Renan Dias</div>
-                            <div>Engenheiro de operações</div>
+                            <div data-i18n="people.devopsEngineer">DevOps engineer</div>
                         </div>
                     </div>
                     <div class="person">
                         <img src="img/aboutus/simon02.png">
                         <div class="label">
                             <div>Simon Fan</div>
-                            <div>Hacker</div>
+                            <div data-i18n="people.hacker">Hacker</div>
                         </div>
                     </div>
                 </div>
             </div>
             <div id="section-contactus" class="sections">
-                <div class="text">
+                <div class="text" data-i18n="talkToUs">
                     Quer saber mais? <br>
                     Fale com a gente!
                 </div>
@@ -296,7 +336,8 @@ a versão beta?<br> Se inscreva aqui!</h2>
     </div>
         
         <script src="bower_components/jquery/dist/jquery.js"></script>
-
+        <!-- i18next -->
+        <script src="bower_components/i18next/i18next.js"></script>
 
 <!--    scroll magic-->
         <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>

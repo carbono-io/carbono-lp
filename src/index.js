@@ -1,6 +1,20 @@
 $(document).ready(function() {
 
     ///////////////////////
+    /////// INTERNATIONALIZATION
+    
+    var i18nextOptions = {
+        fallbackLng: 'en',
+        // Locales that are loadable
+        lngWhitelist: ['pt', 'en']
+    };
+
+    i18n.init(i18nextOptions, function(err, t) {
+      // translate everything
+      $("body").i18n();
+    });
+    
+    ///////////////////////
     ///////////////////////
     /////// FORM
 
@@ -274,8 +288,8 @@ $(document).ready( function() {
 
     headerScene.on('progress', function (event) {
 
-       var finalLogoBoxTop = 24;
-       var finalLogoBoxLeft = 24;
+       var finalLogoBoxTop = 40;
+       var finalLogoBoxLeft = 40;
 
        var finalLogoCTop = 4 + finalLogoBoxTop;
        var finalLogoCLeft = 4 + finalLogoBoxLeft;
@@ -290,13 +304,15 @@ $(document).ready( function() {
        var currentWidth = startLogoBoxWidth - ((startLogoBoxWidth - finalLogoBoxWidth) * event.progress);
        var currentHeight = startLogoBoxHeight - ((startLogoBoxHeight - finalLogoBoxHeight) * event.progress);
 
-       // logo
+       // logoC
        headerSceneElements.logoC.css({
            height: startLogoCHeight - ((startLogoCHeight - finalCHeight) * event.progress),
 
            top: startLogoCTop - ((startLogoCTop - finalLogoCTop) * event.progress),
            left: startLogoCLeft - ((startLogoCLeft - finalLogoCLeft) * event.progress)
        });
+
+       // logoBox
        headerSceneElements.logoBox.css({
            width: currentWidth,
            height: currentHeight,
@@ -683,9 +699,9 @@ scene5Elements.dashedLine8[0].style.transform='translateX(' + currentTranslateDa
         scene1.duration($(window).height()/2);
         
         var scene3offSet = $('#section-03').offset().top;
-        scene3.offset(scene3offSet - scene3offSet/5);
+        scene3.offset(scene3offSet - scene3offSet/4);
         var scene3height = $('#section-03').height();
-        scene3.duration(scene3height/2);
+        scene3.duration(scene3height);
 
         var scene4offSet = $('#section-04').offset().top;
         scene4.offset(scene4offSet - scene4offSet/10);
