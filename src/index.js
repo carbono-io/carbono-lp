@@ -49,6 +49,7 @@ $(document).ready(function() {
             $('#right-command').removeClass('close-command');
             $('#content-wrapper').css('display', 'inline');
             window.scrollTo(0, 0);
+            $('#logo').css('opacity', '1');
 
         }
 
