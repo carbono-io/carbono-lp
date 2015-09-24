@@ -10,6 +10,7 @@
         "contact": "contact"
     },
     "betaForm": {
+        "namePlaceholder": "nome*",
         "submitSuccess": "translate",
         "betaInvite": "translate",
         "invalidEmail": "translate",
@@ -35,7 +36,7 @@
         "archops": "translate",
         "designer": "translate",
         "systemAnalyst": "translate",
-        "devopsEngineer": "translate",
+        "devopsEngineer": "Engenheiro de operações",
         "hacker": "translate"
     }
 }

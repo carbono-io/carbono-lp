@@ -10,6 +10,7 @@
         "contact": "contact"
     },
     "betaForm": {
+        "namePlaceholder": "name*",
         "submitSuccess": "translate",
         "betaInvite": "translate",
         "invalidEmail": "translate",
