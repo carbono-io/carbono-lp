@@ -24,7 +24,6 @@ $(document).ready(function() {
 
 
     //botão menu / fechar
-
     $('#right-command').click(function () {
 
         if (openedMenu===false && openedForm===false) {
@@ -56,6 +55,7 @@ $(document).ready(function() {
 
     });
 
+    // abrir formulário
     $('#button-to-form').click(function () {
 
         openedForm = true;
@@ -76,6 +76,7 @@ $(document).ready(function() {
 
     });
 
+    // fechar formulário após enviado
     $("#sent-close-button").click(function(){
 
         openedForm = false;
@@ -89,8 +90,6 @@ $(document).ready(function() {
 
     });
 
-
-    // TODO: identação
 
     //validar input de nome
     $('#name').keyup(function() {
@@ -171,33 +170,6 @@ $(document).ready(function() {
     });
 
 
-    var trigger = $('#right-command'),
-        isClosed = true;
-//    var buttontoform = $('#button-to-form')
-
-// ABRIR MENU
-//    trigger.click(function () {
-//      burgerTime();
-//    });
-//
-//
-//    function burgerTime() {
-//      if (isClosed == true) {
-//        trigger.removeClass('is-open');
-//        trigger.addClass('is-closed');
-//        isClosed = false;
-//      } else {
-//        trigger.removeClass('is-closed');
-//        trigger.addClass('is-open');
-//        isClosed = true;
-//      }
-//    }
-
-//    buttontoform.click(function () {
-//      changecommandicon();
-//    });
-
-
 
 });
 
@@ -241,6 +213,9 @@ $(window).resize(function() {
 var setSectionHeight = function () {
 
     var windowHeight = $(window ).height();
+
+    var currentHeightMenu = $("#section-menu").css('height', windowHeight);
+
 
     if (windowHeight>=400) {
 

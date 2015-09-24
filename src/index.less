@@ -128,7 +128,7 @@ body {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        min-width: 400px;
+
     }
 
     // Início + botão para formulário
@@ -464,6 +464,7 @@ body {
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             transition: all ease 0.3s;
 
             h2 {
@@ -802,7 +803,94 @@ body {
     }
 }
 
-@media (max-device-width: 700px) {
+// MOBILE LARGURA ENTRE 361 - 750
+@media (min-device-width: 361px) and (max-device-width: 750px) {
+
+    #section-01 {
+        h1 {
+            font-size: 18px;
+            margin: 88px 24px 24px 24px;
+        }
+
+        .button {
+            padding: 0 24px;
+        }
+    }
+}
+
+
+
+// MOBILE LARGURA ATE 360
+@media (max-device-width: 360px) {
+
+    #header {
+
+        #logo-c {
+
+            img {
+                height: 56px;
+                width: 56px;
+            }
+        }
+    }
+
+    #section-01 {
+        h1 {
+            font-size: 16px;
+            margin: 88px 24px 24px 24px;
+        }
+
+        .button {
+            padding: 0 24px;
+        }
+
+    }
+}
+
+
+// MOBILE ALTURA
+@media (max-device-height: 400px) {
+
+    #section-01 {
+        h1 {
+            margin-top: 0;
+        }
+
+        .button {
+            padding: 0 16px;
+        }
+    }
+
+    #header {
+        #logo-c {
+
+                img {
+                    height: 64px;
+                    width: 64px;
+                }
+        }
+    }
+}
+
+
+// BROWSER
+@media (min-width: 501px) and (max-width: 800px) {
+
+    #section-01 {
+        h1 {
+            font-size: 48px;
+            margin: 88px 24px 24px 24px;
+        }
+
+        .button {
+            padding: 0 16px;
+        }
+    }
+}
+
+
+// BROWSER
+@media (max-width: 500px) {
 
     #section-01 {
         h1 {
@@ -810,22 +898,6 @@ body {
             margin: 88px 24px 24px 24px;
         }
     }
-
 }
 
-@media (max-device-height: 400px) {
 
-    #section-01 {
-        h1 {
-            margin-top: 0;
-        }
-    }
-
-    #logo-c {
-
-            img {
-                height: 64px;
-                width: 64px;
-            }
-    }
-}
