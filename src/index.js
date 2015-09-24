@@ -24,7 +24,6 @@ $(document).ready(function() {
 
 
     //botão menu / fechar
-
     $('#right-command').click(function () {
 
         if (openedMenu===false && openedForm===false) {
@@ -56,6 +55,7 @@ $(document).ready(function() {
 
     });
 
+    // abrir formulário
     $('#button-to-form').click(function () {
 
         openedForm = true;
@@ -76,6 +76,7 @@ $(document).ready(function() {
 
     });
 
+    // fechar formulário após enviado
     $("#sent-close-button").click(function(){
 
         openedForm = false;
@@ -90,7 +91,9 @@ $(document).ready(function() {
     });
 
 
-    // TODO: identação
+
+
+
 
     //validar input de nome
     $('#name').keyup(function() {
@@ -171,55 +174,29 @@ $(document).ready(function() {
     });
 
 
-    var trigger = $('#right-command'),
-        isClosed = true;
-//    var buttontoform = $('#button-to-form')
 
-// ABRIR MENU
-//    trigger.click(function () {
-//      burgerTime();
-//    });
+});
+
+//DELETAR
+//$('#close-form').click(function () {
+//    $('#section-form').toggleClass('active');
+//    $('#header').css('display', 'flex');
+//    window.scrollTo(0, 0);
+//    $('#content-wrapper').css('display', 'inline');
 //
+//});
+
+//DELETAR
+//$("#sent-close-button").click(function(){
+//    $('#sent-state').removeClass('active');
+//    $('#modal-container').removeClass('active');
 //
-//    function burgerTime() {
-//      if (isClosed == true) {
-//        trigger.removeClass('is-open');
-//        trigger.addClass('is-closed');
-//        isClosed = false;
-//      } else {
-//        trigger.removeClass('is-closed');
-//        trigger.addClass('is-open');
-//        isClosed = true;
-//      }
-//    }
-
-//    buttontoform.click(function () {
-//      changecommandicon();
-//    });
-
-
-
-});
-
-$('#close-form').click(function () {
-    $('#section-form').toggleClass('active');
-    $('#header').css('display', 'flex');
-    window.scrollTo(0, 0);
-    $('#content-wrapper').css('display', 'inline');
-
-});
-
-
-$("#sent-close-button").click(function(){
-    $('#sent-state').removeClass('active');
-    $('#modal-container').removeClass('active');
-
-    $('#section-form').toggleClass('active');
-    $('#header').css('display', 'flex');
-    window.scrollTo(0, 0);
-    $('#content-wrapper').css('display', 'inline');
-
-});
+//    $('#section-form').toggleClass('active');
+//    $('#header').css('display', 'flex');
+//    window.scrollTo(0, 0);
+//    $('#content-wrapper').css('display', 'inline');
+//
+//});
 
 
 ///////////////////////
@@ -241,6 +218,9 @@ $(window).resize(function() {
 var setSectionHeight = function () {
 
     var windowHeight = $(window ).height();
+
+    var currentHeightMenu = $("#section-menu").css('height', windowHeight);
+
 
     if (windowHeight>=400) {
 
@@ -276,15 +256,15 @@ $(document).ready( function() {
 
     
     // scene of logo
-    var sceneLogoElements = {
+    var headerSceneElements = {
         logoC: $('#logo-c'),
         logoBox: $('#logo-box'),
         logoType: $('#logo-type')
     };
 
-    var sceneLogo = new ScrollMagic.Scene().addTo(controller);
+    var headerScene = new ScrollMagic.Scene().addTo(controller);
     
-    var startLogoCHeight = sceneLogoElements.logoC.height();
+    var startLogoCHeight = headerSceneElements.logoC.height();
     // var startLogoCTop    = logoC.offset().top;
     var startLogoCTop = 40;
     // var startLogoCLeft   = logoC.offset().left;
@@ -292,7 +272,7 @@ $(document).ready( function() {
 
     // 3 e 14;
 
-    sceneLogo.on('progress', function (event) {
+    headerScene.on('progress', function (event) {
 
        var finalLogoBoxTop = 24;
        var finalLogoBoxLeft = 24;
@@ -311,53 +291,63 @@ $(document).ready( function() {
        var currentHeight = startLogoBoxHeight - ((startLogoBoxHeight - finalLogoBoxHeight) * event.progress);
 
        // logo
-       sceneLogoElements.logoC.css({
+       headerSceneElements.logoC.css({
            height: startLogoCHeight - ((startLogoCHeight - finalCHeight) * event.progress),
 
            top: startLogoCTop - ((startLogoCTop - finalLogoCTop) * event.progress),
            left: startLogoCLeft - ((startLogoCLeft - finalLogoCLeft) * event.progress)
        });
-       sceneLogoElements.logoBox.css({
+       headerSceneElements.logoBox.css({
            width: currentWidth,
            height: currentHeight,
 
            top: finalLogoBoxTop * event.progress,
            left: finalLogoBoxLeft * event.progress,
        });
-
-       if (event.progress >= 1) {
+        
+        var menuButton = $('#right-command');
+        
+        // change color of menu button from white to black
+        // 60 is the distance from center of the button to 
+        // the right window
+        if ($(window).width() - currentWidth >= 60) {
+            menuButton.addClass('black');   
+        } else {
+            menuButton.removeClass('black');   
+        }
+        
+        // make the logoType appear when scene is complete
+        // and hide it when not
+        if (event.progress >= 1) {
 
            var finalLogoTypeTop = 14 + finalLogoBoxTop;
            var finalLogoTypeLeft = 3 + finalLogoBoxLeft + finalLogoBoxWidth;
 
-           sceneLogoElements.logoType.css({
+           headerSceneElements.logoType.css({
                top: finalLogoTypeTop,
                left: finalLogoTypeLeft,
                opacity: 1,
            })
-       } else {
-           sceneLogoElements.logoType.css({
+        } else {
+           headerSceneElements.logoType.css({
                opacity: 0
            })
-       }
+        }
     });
 
 
-    ///////////////
-    // section01 //
+    /////////////
+    // scene 1 //
 
-//    var section01Scene = new ScrollMagic.Scene({
-//       offset: 0,
-//       duration: section01.height() / 2,
-//    })
-//    .setPin(section01[0])
-//    .addTo(controller);
-//
-//    section01Scene.on('progress', function (event) {
-//       section01.css({
-//           opacity: 1 - 2 * event.progress
-//       });
-//    });
+    var scene1 = new ScrollMagic.Scene()
+    .setPin('#section-01')
+    .addTo(controller);
+
+    scene1.on('progress', function (event) {
+       $('#section-01').css({
+           opacity: 1 - event.progress
+       });
+    });
 
     
     
@@ -686,8 +676,11 @@ scene5Elements.dashedLine8[0].style.transform='translateX(' + currentTranslateDa
      */
     function setSceneProperties() {
         
-        sceneLogo.offset(0);
-        sceneLogo.duration($(window).height());
+        headerScene.offset(0);
+        headerScene.duration($(window).height());
+        
+        scene1.offset(0);
+        scene1.duration($(window).height()/2);
         
         var scene3offSet = $('#section-03').offset().top;
         scene3.offset(scene3offSet - scene3offSet/5);
