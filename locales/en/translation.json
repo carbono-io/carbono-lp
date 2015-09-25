@@ -1,7 +1,7 @@
 {
     "ok": "ok",
-    "tryBeta": "TRY BETA",
-    "talkToUs": "Want to know more? <br>Talk to us!",
+    "tryBeta": "JOIN CLOSED BETA",
+    "talkToUs": "Want to know more? <br>Contact us!",
     "menu": {
         "home": "home",
         "theProject": "the project",
@@ -11,24 +11,24 @@
     },
     "betaForm": {
         "namePlaceholder": "name*",
-        "submitSuccess": "translate",
-        "betaInvite": "translate",
-        "invalidEmail": "translate",
-        "whatDoYouDo": "translate",
-        "haveAnIdea": "translate",
-        "designTheLayout": "translate",
-        "developPrototypes": "translate",
-        "developFrontEnd": "translate",
-        "developBackend": "translate",
-        "noExperienceWithDevelopment": "translate",
-        "submit": "translate"
+        "submitSuccess": "Thanks for subscribing.<br> We'll be in contact soon.",
+        "betaInvite": "Want to be one of the first to try our closed beta version? <br>Please, subscribe here!",
+        "invalidEmail": "Your e-mail is incorrect. Please, follow the format: example@example.com",
+        "whatDoYouDo": "In general, which roles do you play when creating applications?* <br>(Please, choose at least one option)",
+        "haveAnIdea": "I have ideas of applications",
+        "designTheLayout": "I design the interface",
+        "developPrototypes": "I create working prototypes",
+        "developFrontEnd": "I develop front-end",
+        "developBackend": "I develop back-end",
+        "noExperienceWithDevelopment": "I haven't created applications yet",
+        "submit": "Subscribe to beta"
     },
     "manifest": {
         "transformIdeas": "Transform your ideas in powerful applications",
-        "theProject": "Carbono will allow you to build information systems in the form of websites and apps. There’s no limit, independent of your programming and designing skills",
+        "theProject": "Carbono.io allows you to build information systems like sites and apps for desktop, smartphones and other devices, using web standards and covering different levels of programming and designing skills.",
         "democratizeDevelopment": "Democratize the development of information technology",
-        "enpowerPeople": "Empower people from different knowledge areas",
-        "lowerBarriers": "Reduce the barrier to applications development",
+        "enpowerPeople": "Empower people with different skills",
+        "lowerBarriers": "Reduce the barrier to application development",
         "transformTheFuture": "Contribute to the transformation of the future"
     },
     "people": {
