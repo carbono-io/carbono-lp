@@ -1,7 +1,7 @@
 {
     "ok": "ok",
     "tryBeta": "quero testar versão beta",
-    "talkToUs": "translate",
+    "talkToUs": "Quer saber mais? Fale conosco!",
     "menu": {
         "home": "home",
         "theProject": "o projeto",
@@ -24,8 +24,8 @@
         "submit": "Enviar inscrição"
     },
     "manifest": {
-        "transformIdeas": "Transforme suas ideias em aplicações poderosas.",
-        "theProject": "A Carbono permitirá a você construir sistemas de informação na forma de sites, aplicativos, entre outros. Não há limites, independente do seu nível de conhecimento em programação e design.",
+        "transformIdeas": "Transforme suas ideias em aplicações poderosas",
+        "theProject": "A Carbono permitirá a você construir sistemas de informação na forma de sites e aplicativos. Não há limites, independente do seu nível de conhecimento em programação e design.",
         "democratizeDevelopment": "Democratizar o desenvolvimento de tecnologia da informação",
         "enpowerPeople": "Empoderar pessoas de diferentes áreas do conhecimento",
         "lowerBarriers": "Diminuir a barreira para o desenvolvimento de aplicações",
@@ -37,6 +37,8 @@
         "designer": "designer",
         "systemAnalyst": "analista de sistemas",
         "devopsEngineer": "engenheiro de operações",
-        "hacker": "hacker"
+        "hacker": "hacker",
+        "dev-engineer": "engenheiro de sistemas",
+        "visio": "visionário"
     }
 }
