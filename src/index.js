@@ -1,3 +1,6 @@
+// parse keys
+Parse.initialize("AXdmXutODZU1wb5YxjXbdlvFwJy9wBCLi6ocXjyL", "JzQphupDOqmNVUj7o1rzItdA2HxUEbzAZDAw4VIq");
+
 $(document).ready(function() {
 
     ///////////////////////
@@ -10,10 +13,60 @@ $(document).ready(function() {
     };
 
     i18n.init(i18nextOptions, function(err, t) {
-      // translate everything
-      $("body").i18n();
+        // translate everything
+        $("body").i18n();
     });
+
+    $('.language-switch').click(function () {
+        var lang = $(this).data('lang');
+
+        i18n.setLng(lang, function () {
+            $('body').i18n();
+        });
+    });
+
+    ///////////////////////
+    /////// INTERNATIONALIZATION
     
+    //////////////////////////
+    /////// MENU NAVIGATION
+    $('#section-menu').find('a[href^="#"]').on('click',function (e) {
+        e.preventDefault();
+
+        openedMenu = false;
+        $('#section-menu').removeClass('active');
+        $('#right-command').removeClass('close-command');
+        $('#content-wrapper').css('display', 'block');
+        $('#logo').css('display', 'block');
+
+        // closing menu
+        $('#section-01').width($(window).width());
+
+        var target = this.hash;
+        var $target = $(target);
+
+        var scrollTop;
+
+        /////////////////////////////////////
+        // There is a problem with section-01 due to its pinning.
+        // ScrollMagic does not calculate its height
+        // and messes up other animations
+        if (target === '#section-01') {
+            scrollTop = 0;
+        } else {
+            scrollTop = $target.offset().top + $(window).height();
+        }
+        ////////////////////////////
+        
+        $('html, body').stop().animate({
+            'scrollTop': scrollTop
+        }, 900, 'swing', function () {
+            // window.location.hash = target;
+        });
+    });
+
+
+
     ///////////////////////
     ///////////////////////
     /////// FORM
@@ -36,12 +89,14 @@ $(document).ready(function() {
     // form aberto começa falso
     var openedForm = false;
 
+    var lastScrollPosition = false;
 
     //botão menu / fechar
     $('#right-command').click(function () {
 
         if (openedMenu===false && openedForm===false) {
             // opening
+            lastScrollPosition = $('window,body').scrollTop();
 
             openedMenu = true;
             $('#section-menu').addClass('active');
@@ -50,28 +105,31 @@ $(document).ready(function() {
             $('#logo').css('display', 'none');
 
         } else if (openedMenu===true && openedForm===false) {
-            // closing
-            setSectionHeight();
-            setSceneProperties();
-
+            // closing menu
+            
             openedMenu = false;
             $('#section-menu').removeClass('active');
             $('#right-command').removeClass('close-command');
-            $('#content-wrapper').css('display', 'inline');
+            $('#content-wrapper').css('display', 'block');
+
             $('#logo').css('display', 'block');
 
-        } else if (openedMenu===false && openedForm===true) {
-            // closing
+            $('window,body').scrollTop(lastScrollPosition);
+
             setSectionHeight();
-            setSceneProperties();
+
+
+        } else if (openedMenu===false && openedForm===true) {
+            // closing form
 
             openedForm = false;
             $('#section-form').removeClass('active');
             $('#right-command').removeClass('close-command');
-            $('#content-wrapper').css('display', 'inline');
+            $('#content-wrapper').css('display', 'block');
             window.scrollTo(0, 0);
             $('#logo').css('display', 'block');
 
+            setSectionHeight();
         }
 
     });
@@ -178,95 +236,107 @@ $(document).ready(function() {
 
     });
 
-    // submit do form
-    $("#form-contact").submit(function(event) {
-
-        event.preventDefault();
-
-        setTimeout(function () {
-            $('#loading-state').removeClass('active');
-            $('#sent-state').addClass('active');
-        }, 2000);
-
-
-        $("#modal-container").addClass('active');
-        $("#loading-state").addClass('active');
-
-    });
-
-
-
-// });
-
-//DELETAR
-//$('#close-form').click(function () {
-//    $('#section-form').toggleClass('active');
-//    $('#header').css('display', 'flex');
-//    window.scrollTo(0, 0);
-//    $('#content-wrapper').css('display', 'inline');
-//
-//});
-
-//DELETAR
-//$("#sent-close-button").click(function(){
-//    $('#sent-state').removeClass('active');
-//    $('#modal-container').removeClass('active');
-//
-//    $('#section-form').toggleClass('active');
-//    $('#header').css('display', 'flex');
-//    window.scrollTo(0, 0);
-//    $('#content-wrapper').css('display', 'inline');
-//
-//});
-
-
-///////////////////////
-///////////////////////
-/////// FORM END
-
-
-
-///////////////////////
-///////////////////////
-//// CALCULATE HEIGHT
-
-
-$(window).resize(function() {
-    setSectionHeight();
-});
-
-
-var setSectionHeight = function () {
-
-    var windowHeight = $(window ).height();
-
-    var currentHeightMenu = $("#section-menu").css('height', windowHeight);
-
-
-    if (windowHeight>=400) {
-
-    var currentHeight = $(".sections").css('height', windowHeight);
-    var currentHeightmodal = $("#modal-container").css('height', windowHeight);
-
-    } else {
-
-    var currentHeight = $(".sections").css('height', '400px');
-    var currentHeightmodal = $("#modal-container").css('height', '400px');
-
+    // all field readers
+    var $form = $('#form-contact');
+    function readName() {
+        return $form.find('[name="name"]').val();
     }
 
-};
+    function readEmail() {
+        return $form.find('[name="email"]').val();
+    }
+
+    function readExperience() {
+        var values = {};
+
+        $form.find('[name="experience"]').each(function (index, checkbox) {
+            var $checkbox = $(checkbox);
+
+            values[$checkbox.val()] = $checkbox.is(':checked');
+        });
+
+        return values;
+    }
+
+    // submit do form
+    $("#form-contact").submit(function(event) {
+        // prevent default at start so that error do not cause reload
+        event.preventDefault();
+        // read data
+        var data = {
+            name: readName(),
+            email: readEmail(),
+            experience: readExperience(),
+        };
+
+        var Subscription = Parse.Object.extend("Subscription");
+        var subscription = new Subscription();
+        subscription
+            .save(data)
+            .then(function(object) {
+                $('#loading-state').removeClass('active');
+                $('#sent-state').addClass('active');
+            }, function (err) {
+
+                console.log('treat error')
+            });
+
+        // set to loading state
+        $("#modal-container").addClass('active');
+        $("#loading-state").addClass('active');
+    });
+
+    ///////////////////////
+    ///////////////////////
+    /////// FORM END
 
 
-///////////////////////
-///////////////////////
-//// CALCULATE HEIGHT END
+
+    ///////////////////////
+    ///////////////////////
+    //// CALCULATE HEIGHT
 
 
+    $(window).resize(function() {
+        setSectionHeight();
+    });
+
+    // var to hold whether the section heights has been set
+    var hasSetHeightsAtLeastOnce = false;
+
+    var setSectionHeight = function () {
+
+        if (isMobile() && hasSetHeightsAtLeastOnce) {
+            // console
+        } else {
+            var windowHeight = $(window ).height();
+
+            var currentHeightMenu = $("#section-menu").css('height', windowHeight);
 
 
-// $(document).ready( function() {
+            if (windowHeight>=400) {
+
+                var currentHeight = $(".sections").css('height', windowHeight);
+                var currentHeightmodal = $("#modal-container").css('height', windowHeight);
+
+            } else {
+
+                var currentHeight = $(".sections").css('height', '400px');
+                var currentHeightmodal = $("#modal-container").css('height', '400px');
+
+            }
+
+            // tell the application that heights have been set once
+            hasSetHeightsAtLeastOnce = true;
+        }
+    };
+
+    // set section height immediately on initialization
     setSectionHeight();
+
+    ///////////////////////
+    ///////////////////////
+    //// CALCULATE HEIGHT END
 
     ///////////////////////
     ///////////////////////
@@ -286,47 +356,47 @@ var setSectionHeight = function () {
     var headerScene = new ScrollMagic.Scene().addTo(controller);
     
     var startLogoCHeight = headerSceneElements.logoC.height();
-    // var startLogoCTop    = logoC.offset().top;
-    var startLogoCTop = 40;
-    // var startLogoCLeft   = logoC.offset().left;
-    var startLogoCLeft = 40;
 
     // 3 e 14;
 
     headerScene.on('progress', function (event) {
 
-       var finalLogoBoxTop = 40;
-       var finalLogoBoxLeft = 40;
+        // var startLogoCTop    = logoC.offset().top;
+        var startLogoCTop = 40;
+        // var startLogoCLeft   = logoC.offset().left;
+        var startLogoCLeft = 40;
+        var finalLogoBoxTop = 40;
+        var finalLogoBoxLeft = 40;
 
-       var finalLogoCTop = 4 + finalLogoBoxTop;
-       var finalLogoCLeft = 4 + finalLogoBoxLeft;
-       var finalCHeight = 21;
+        var finalLogoCTop = 4 + finalLogoBoxTop;
+        var finalLogoCLeft = 4 + finalLogoBoxLeft;
+        var finalCHeight = 21;
 
-       var startLogoBoxWidth = $(window).width();
-       var finalLogoBoxWidth = 50;
+        var startLogoBoxWidth = $(window).width();
+        var finalLogoBoxWidth = 50;
 
-       var startLogoBoxHeight = $(window).height();
-       var finalLogoBoxHeight = 50;
+        var startLogoBoxHeight = $(window).height();
+        var finalLogoBoxHeight = 50;
 
-       var currentWidth = startLogoBoxWidth - ((startLogoBoxWidth - finalLogoBoxWidth) * event.progress);
-       var currentHeight = startLogoBoxHeight - ((startLogoBoxHeight - finalLogoBoxHeight) * event.progress);
+        var currentWidth = startLogoBoxWidth - ((startLogoBoxWidth - finalLogoBoxWidth) * event.progress);
+        var currentHeight = startLogoBoxHeight - ((startLogoBoxHeight - finalLogoBoxHeight) * event.progress);
 
-       // logoC
-       headerSceneElements.logoC.css({
-           height: startLogoCHeight - ((startLogoCHeight - finalCHeight) * event.progress),
+        // logoC
+        headerSceneElements.logoC.css({
+            height: startLogoCHeight - ((startLogoCHeight - finalCHeight) * event.progress),
 
-           top: startLogoCTop - ((startLogoCTop - finalLogoCTop) * event.progress),
-           left: startLogoCLeft - ((startLogoCLeft - finalLogoCLeft) * event.progress)
-       });
+            top: startLogoCTop - ((startLogoCTop - finalLogoCTop) * event.progress),
+            left: startLogoCLeft - ((startLogoCLeft - finalLogoCLeft) * event.progress)
+        });
 
-       // logoBox
-       headerSceneElements.logoBox.css({
-           width: currentWidth,
-           height: currentHeight,
+        // logoBox
+        headerSceneElements.logoBox.css({
+            width: currentWidth,
+            height: currentHeight,
 
-           top: finalLogoBoxTop * event.progress,
-           left: finalLogoBoxLeft * event.progress,
-       });
+            top: finalLogoBoxTop * event.progress,
+            left: finalLogoBoxLeft * event.progress,
+        });
         
         var menuButton = $('#right-command');
         
@@ -343,19 +413,24 @@ var setSectionHeight = function () {
         // and hide it when not
         if (event.progress >= 1) {
 
-           var finalLogoTypeTop = 14 + finalLogoBoxTop;
-           var finalLogoTypeLeft = 3 + finalLogoBoxLeft + finalLogoBoxWidth;
+            var finalLogoTypeTop = 14 + finalLogoBoxTop;
+            var finalLogoTypeLeft = 3 + finalLogoBoxLeft + finalLogoBoxWidth;
 
-           headerSceneElements.logoType.css({
-               top: finalLogoTypeTop,
-               left: finalLogoTypeLeft,
-               opacity: 1,
-           })
+            headerSceneElements.logoType.css({
+                top: finalLogoTypeTop,
+                left: finalLogoTypeLeft,
+                opacity: 1,
+            })
         } else {
-           headerSceneElements.logoType.css({
-               opacity: 0
-           })
+            headerSceneElements.logoType.css({
+                opacity: 0
+            })
         }
+
+        // language switch
+        $('#language-switch-container').css({
+            opacity: 1 - 4 * event.progress
+        });
     });
 
 
@@ -753,22 +828,7 @@ var setSectionHeight = function () {
     });
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// AUXILIARY FUNCTIONS
+function isMobile() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
