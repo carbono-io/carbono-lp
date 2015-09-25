@@ -6,11 +6,35 @@
 @logoCZIndex: @logoBoxZIndex + 1;
 @section01ZIndex: @logoCZIndex;
 @modalContainerZIndex: @section01ZIndex + 1;
-@rightCommandZIndex: @modalContainerZIndex + 1;
+@rightCommandZIndex: @modalContainerZIndex + 10000000;
 @formStateZIndex: @rightCommandZIndex + 1;
 
 
 body {
+
+    // hide all elements
+    > * {
+        transition: opacity ease 0.5s;
+        opacity: 0;
+    }
+
+    // make the transition 
+    transition: background-color ease 0.5s 0.5s;
+    background-color: @black;
+    // cancel scrolling
+    overflow-y: hidden;
+    &.show {
+        // when show, set the background color to white
+        background-color: #fff;
+
+        // enable scrolling
+        overflow-y: auto;
+
+        // show all elements
+        > * {
+            opacity: 1;
+        }
+    }
 
     font-family: 'Source Sans Pro', sans-serif;
     line-height: 1.5;

@@ -12,6 +12,7 @@
   "dependencies": {
     "i18next": "~1.10.2",
     "jquery": "~2.1.4",
+    "scrollmagic": "ScrollMagic#~2.0.5",
     "scrollme": "~1.1.0"
   }
 }

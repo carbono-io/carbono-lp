@@ -96,7 +96,7 @@ $(document).ready(function() {
 
         if (openedMenu===false && openedForm===false) {
             // opening
-            lastScrollPosition = $('window,body').scrollTop();
+            lastScrollPosition = $(document).scrollTop();
 
             openedMenu = true;
             $('#section-menu').addClass('active');
@@ -114,9 +114,10 @@ $(document).ready(function() {
 
             $('#logo').css('display', 'block');
 
-            $('window,body').scrollTop(lastScrollPosition);
 
             setSectionHeight();
+            $(document).scrollTop(lastScrollPosition);
+
 
 
         } else if (openedMenu===false && openedForm===true) {
@@ -831,6 +832,9 @@ $(document).ready(function() {
         scene6b.offset(scene6boffSet);
         scene6b.duration(scene6aheight);
 
+        setTimeout(function () {
+            $('body').addClass('show');
+        }, 200);
     }
 
     // updates properties of scenes everytime window is resized
