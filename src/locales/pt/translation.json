@@ -1,0 +1,43 @@
+{
+    "ok": "ok",
+    "tryBeta": "quero testar versão beta",
+    "talkToUs": "translate",
+    "menu": {
+        "home": "home",
+        "theProject": "o projeto",
+        "manifest": "manifesto",
+        "aboutUs": "sobre nós",
+        "contact": "contato"
+    },
+    "betaForm": {
+        "namePlaceholder": "nome*",
+        "submitSuccess": "Sua inscrição foi realizada! Em breve entraremos em contato.",
+        "betaInvite": "Quer ser um dos primeiros a testar
+a versão beta? Se inscreva aqui!",
+        "invalidEmail": "Seu e-mail não está correto. Ele deve seguir o formato: exemplo@exemplo.com",
+        "whatDoYouDo": "Geralmente, quais papeis você desempenha na criação de aplicações?* (Preencha pelo menos uma opção)",
+        "haveAnIdea": "Tenho ideias de aplicações",
+        "designTheLayout": "Crio o design das telas",
+        "developPrototypes": "Desenvolvo protótipos navegáveis",
+        "developFrontEnd": "Desenvolvo o front-end ",
+        "developBackend": "Desenvolvo o back-end",
+        "noExperienceWithDevelopment": "Ainda não tenho experiência com criação de aplicações",
+        "submit": "Enviar inscrição"
+    },
+    "manifest": {
+        "transformIdeas": "Transforme suas ideias em aplicações poderosas.",
+        "theProject": "A Carbono permitirá a você construir sistemas de informação na forma de sites, aplicativos, entre outros. Não há limites, independente do seu nível de conhecimento em programação e design.",
+        "democratizeDevelopment": "Democratizar o desenvolvimento de tecnologia da informação",
+        "enpowerPeople": "Empoderar pessoas de diferentes áreas do conhecimento",
+        "lowerBarriers": "Diminuir a barreira para o desenvolvimento de aplicações",
+        "transformTheFuture": "Contribuir para a transformação do futuro"
+    },
+    "people": {
+        "productManager": "gerente de produto",
+        "archops": "archops",
+        "designer": "designer",
+        "systemAnalyst": "analista de sistemas",
+        "devopsEngineer": "engenheiro de operações",
+        "hacker": "hacker"
+    }
+}

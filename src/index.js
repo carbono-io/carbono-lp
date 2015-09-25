@@ -235,26 +235,34 @@ $(window).resize(function() {
     setSectionHeight();
 });
 
+// var to hold whether the section heights has been set
+var hasSetHeightsAtLeastOnce = false;
 
 var setSectionHeight = function () {
 
-    var windowHeight = $(window ).height();
-
-    var currentHeightMenu = $("#section-menu").css('height', windowHeight);
-
-
-    if (windowHeight>=400) {
-
-    var currentHeight = $(".sections").css('height', windowHeight);
-    var currentHeightmodal = $("#modal-container").css('height', windowHeight);
-
+    if (isMobile() && hasSetHeightsAtLeastOnce) {
+        // console
     } else {
+        var windowHeight = $(window ).height();
 
-    var currentHeight = $(".sections").css('height', '400px');
-    var currentHeightmodal = $("#modal-container").css('height', '400px');
+        var currentHeightMenu = $("#section-menu").css('height', windowHeight);
 
+
+        if (windowHeight>=400) {
+
+            var currentHeight = $(".sections").css('height', windowHeight);
+            var currentHeightmodal = $("#modal-container").css('height', windowHeight);
+
+        } else {
+
+            var currentHeight = $(".sections").css('height', '400px');
+            var currentHeightmodal = $("#modal-container").css('height', '400px');
+
+        }
+
+        // tell the application that heights have been set once
+        hasSetHeightsAtLeastOnce = true;
     }
-
 };
 
 
@@ -770,5 +778,8 @@ var setSectionHeight = function () {
 
 
 
-
+// AUXILIARY FUNCTIONS
+function isMobile() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
 
