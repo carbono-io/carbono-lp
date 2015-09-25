@@ -175,7 +175,7 @@ $(document).ready(function() {
 
 
     //validar input de nome
-    $('#name').keyup(function() {
+    function betaFormValidateName() {
         var input = $(this);
 
         if (input.val()==="") {
@@ -192,7 +192,10 @@ $(document).ready(function() {
                 $('#register-button').attr('disabled',true);
             }
         }
-    });
+    }
+    $('#name')
+        .keyup(betaFormValidateName)
+        .focusout(betaFormValidateName);
 
     //validar input de email
     $('#email').focusout(function() {
