@@ -836,6 +836,9 @@ $(document).ready(function() {
         scene6b.offset(scene6boffSet);
         scene6b.duration(scene6aheight);
 
+        setTimeout(function () {
+            $('body').addClass('show');
+        }, 200);
     }
 
     // updates properties of scenes everytime window is resized
