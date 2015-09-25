@@ -1,3 +1,6 @@
+// native
+var path = require('path');
+
 //carregar gulp
 var gulp           = require("gulp");
 var gulpLess       = require("gulp-less");
@@ -5,6 +8,7 @@ var gulpSize       = require('gulp-size');
 var gulpIf         = require('gulp-if');
 var gulpStripDebug = require('gulp-strip-debug');
 var gulpImagemin   = require('gulp-imagemin');
+var gulpRename     = require('gulp-rename');
 var autoprefixer   = require('gulp-autoprefixer');
 var browserSync    = require('browser-sync').create();
 
@@ -94,6 +98,14 @@ gulp.task('serve:dist', function () {
             baseDir: './dist'
         }
     })
-})
+});
+
+gulp.task('gh-pages', function () {
+    gulp.src('dist/**/*')
+        .pipe(gulpIf(function (file) {
+            return path.basename(file.path) === 'index.build.html';
+        }, gulpRename('index.html')))
+        .pipe(gulp.dest('.'));
+});
 
 gulp.task('develop', ['watch', 'browser-sync']);
