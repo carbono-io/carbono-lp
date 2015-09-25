@@ -697,7 +697,23 @@ $(document).ready( function() {
         
         scene1.offset(0);
         scene1.duration($(window).height()/2);
-        
+        // GAMBIARRA:
+        // ScrollMagic sets width for elements 
+        // when it pins them. 
+        // As we called scene1.setPin('#section-01'),
+        // it has made the section's width fixed to small devices
+        // and whenever the window width resizes the section remained small.
+        // Thus, we must set it's size manually.
+        $('#section-01').width($(window).width());
+        // GAMBIARRA:
+        // ScrollMagic sets width for elements 
+        // when it pins them. 
+        // As we called scene1.setPin('#section-01'),
+        // it has made the section's width fixed to small devices
+        // and whenever the window width resizes the section remained small.
+        // Thus, we must set it's size manually.
+
+
         var scene3offSet = $('#section-03').offset().top;
         scene3.offset(scene3offSet - scene3offSet/4);
         var scene3height = $('#section-03').height();
