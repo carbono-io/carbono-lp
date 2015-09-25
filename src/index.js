@@ -1,3 +1,6 @@
+// parse keys
+Parse.initialize("AXdmXutODZU1wb5YxjXbdlvFwJy9wBCLi6ocXjyL", "JzQphupDOqmNVUj7o1rzItdA2HxUEbzAZDAw4VIq");
+
 $(document).ready(function() {
 
     ///////////////////////
@@ -14,6 +17,45 @@ $(document).ready(function() {
       $("body").i18n();
     });
     
+    //////////////////////////
+    /////// MENU NAVIGATION
+    $('#section-menu').find('a[href^="#"]').on('click',function (e) {
+        e.preventDefault();
+
+        openedMenu = false;
+        $('#section-menu').removeClass('active');
+        $('#right-command').removeClass('close-command');
+        $('#content-wrapper').css('display', 'block');
+        $('#logo').css('display', 'block');
+
+        // closing menu
+        $('#section-01').width($(window).width());
+
+        var target = this.hash;
+        var $target = $(target);
+
+        var scrollTop;
+
+        /////////////////////////////////////
+        // There is a problem with section-01 due to its pinning.
+        // ScrollMagic does not calculate its height
+        // and messes up other animations
+        if (target === '#section-01') {
+            scrollTop = 0;
+        } else {
+            scrollTop = $target.offset().top + $(window).height();
+        }
+        ////////////////////////////
+        
+        $('html, body').stop().animate({
+            'scrollTop': scrollTop
+        }, 900, 'swing', function () {
+            // window.location.hash = target;
+        });
+    });
+
+
+
     ///////////////////////
     ///////////////////////
     /////// FORM
@@ -36,12 +78,14 @@ $(document).ready(function() {
     // form aberto começa falso
     var openedForm = false;
 
+    var lastScrollPosition = false;
 
     //botão menu / fechar
     $('#right-command').click(function () {
 
         if (openedMenu===false && openedForm===false) {
             // opening
+            lastScrollPosition = $('window,body').scrollTop();
 
             openedMenu = true;
             $('#section-menu').addClass('active');
@@ -50,28 +94,31 @@ $(document).ready(function() {
             $('#logo').css('display', 'none');
 
         } else if (openedMenu===true && openedForm===false) {
-            // closing
-            setSectionHeight();
-            setSceneProperties();
-
+            // closing menu
+            
             openedMenu = false;
             $('#section-menu').removeClass('active');
             $('#right-command').removeClass('close-command');
-            $('#content-wrapper').css('display', 'inline');
+            $('#content-wrapper').css('display', 'block');
+
             $('#logo').css('display', 'block');
 
-        } else if (openedMenu===false && openedForm===true) {
-            // closing
+            $('window,body').scrollTop(lastScrollPosition);
+
             setSectionHeight();
-            setSceneProperties();
+
+
+        } else if (openedMenu===false && openedForm===true) {
+            // closing form
 
             openedForm = false;
             $('#section-form').removeClass('active');
             $('#right-command').removeClass('close-command');
-            $('#content-wrapper').css('display', 'inline');
+            $('#content-wrapper').css('display', 'block');
             window.scrollTo(0, 0);
             $('#logo').css('display', 'block');
 
+            setSectionHeight();
         }
 
     });
@@ -178,103 +225,107 @@ $(document).ready(function() {
 
     });
 
+    // all field readers
+    var $form = $('#form-contact');
+    function readName() {
+        return $form.find('[name="name"]').val();
+    }
+
+    function readEmail() {
+        return $form.find('[name="email"]').val();
+    }
+
+    function readExperience() {
+        var values = {};
+
+        $form.find('[name="experience"]').each(function (index, checkbox) {
+            var $checkbox = $(checkbox);
+
+            values[$checkbox.val()] = $checkbox.is(':checked');
+        });
+
+        return values;
+    }
+
     // submit do form
     $("#form-contact").submit(function(event) {
-
+        // prevent default at start so that error do not cause reload
         event.preventDefault();
+        // read data
+        var data = {
+            name: readName(),
+            email: readEmail(),
+            experience: readExperience(),
+        };
 
-        setTimeout(function () {
-            $('#loading-state').removeClass('active');
-            $('#sent-state').addClass('active');
-        }, 2000);
+        var Subscription = Parse.Object.extend("Subscription");
+        var subscription = new Subscription();
+        subscription
+            .save(data)
+            .then(function(object) {
+                $('#loading-state').removeClass('active');
+                $('#sent-state').addClass('active');
+            }, function (err) {
 
+                console.log('treat error')
+            });
 
+        // set to loading state
         $("#modal-container").addClass('active');
         $("#loading-state").addClass('active');
-
     });
 
-
-
-// });
-
-//DELETAR
-//$('#close-form').click(function () {
-//    $('#section-form').toggleClass('active');
-//    $('#header').css('display', 'flex');
-//    window.scrollTo(0, 0);
-//    $('#content-wrapper').css('display', 'inline');
-//
-//});
-
-//DELETAR
-//$("#sent-close-button").click(function(){
-//    $('#sent-state').removeClass('active');
-//    $('#modal-container').removeClass('active');
-//
-//    $('#section-form').toggleClass('active');
-//    $('#header').css('display', 'flex');
-//    window.scrollTo(0, 0);
-//    $('#content-wrapper').css('display', 'inline');
-//
-//});
-
-
-///////////////////////
-///////////////////////
-/////// FORM END
+    ///////////////////////
+    ///////////////////////
+    /////// FORM END
 
 
 
-///////////////////////
-///////////////////////
-//// CALCULATE HEIGHT
+    ///////////////////////
+    ///////////////////////
+    //// CALCULATE HEIGHT
 
 
-$(window).resize(function() {
-    setSectionHeight();
-});
+    $(window).resize(function() {
+        setSectionHeight();
+    });
 
-// var to hold whether the section heights has been set
-var hasSetHeightsAtLeastOnce = false;
+    // var to hold whether the section heights has been set
+    var hasSetHeightsAtLeastOnce = false;
 
-var setSectionHeight = function () {
+    var setSectionHeight = function () {
 
-    if (isMobile() && hasSetHeightsAtLeastOnce) {
-        // console
-    } else {
-        var windowHeight = $(window ).height();
-
-        var currentHeightMenu = $("#section-menu").css('height', windowHeight);
-
-
-        if (windowHeight>=400) {
-
-            var currentHeight = $(".sections").css('height', windowHeight);
-            var currentHeightmodal = $("#modal-container").css('height', windowHeight);
-
+        if (isMobile() && hasSetHeightsAtLeastOnce) {
+            // console
         } else {
+            var windowHeight = $(window ).height();
 
-            var currentHeight = $(".sections").css('height', '400px');
-            var currentHeightmodal = $("#modal-container").css('height', '400px');
+            var currentHeightMenu = $("#section-menu").css('height', windowHeight);
 
+
+            if (windowHeight>=400) {
+
+                var currentHeight = $(".sections").css('height', windowHeight);
+                var currentHeightmodal = $("#modal-container").css('height', windowHeight);
+
+            } else {
+
+                var currentHeight = $(".sections").css('height', '400px');
+                var currentHeightmodal = $("#modal-container").css('height', '400px');
+
+            }
+
+            // tell the application that heights have been set once
+            hasSetHeightsAtLeastOnce = true;
         }
+    };
 
-        // tell the application that heights have been set once
-        hasSetHeightsAtLeastOnce = true;
-    }
-};
-
-
-///////////////////////
-///////////////////////
-//// CALCULATE HEIGHT END
-
-
-
-
-// $(document).ready( function() {
+    // set section height immediately on initialization
     setSectionHeight();
+
+    ///////////////////////
+    ///////////////////////
+    //// CALCULATE HEIGHT END
 
     ///////////////////////
     ///////////////////////
@@ -761,25 +812,7 @@ var setSectionHeight = function () {
     });
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // AUXILIARY FUNCTIONS
 function isMobile() {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
-
