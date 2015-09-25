@@ -717,7 +717,7 @@ $(document).ready( function() {
         var scene3offSet = $('#section-03').offset().top;
         scene3.offset(scene3offSet - scene3offSet/4);
         var scene3height = $('#section-03').height();
-        scene3.duration(scene3height);
+        scene3.duration(scene3height - scene3height/4);
 
         var scene4offSet = $('#section-04').offset().top;
         scene4.offset(scene4offSet - scene4offSet/10);
