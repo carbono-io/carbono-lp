@@ -398,7 +398,7 @@ var setSectionHeight = function () {
     scene3.on('progress', function(event){
 //        console.log('scene 3 progress: ' + event.progress)
         var currentRotationDasshedLine = rotationDashedLine * event.progress;
-        scene3Elements.dashedLine.css('transform', 'rotate(-' + currentRotationDasshedLine + 'deg)')
+        scene3Elements.dashedLine.css('transform', 'rotate(-' + currentRotationDasshedLine + 'deg)');
 
         var currentTranslateXcircle1 = translateXcircle1 * event.progress;
         var currentTranslateYcircle1 = translateYcircle1 * event.progress;
