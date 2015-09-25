@@ -389,9 +389,9 @@ var setSectionHeight = function () {
 
     var rotationDashedLine = 90;
     var translateXcircle1 = 20;
-    var translateYcircle1 = 70;
-    var translateXcircle2 = 20;
-    var translateYcircle2 = 160;
+    var translateYcircle1 = 90;
+    var translateXcircle2 = 120;
+    var translateYcircle2 = 180;
     var scaleCircle2 = 3;
 
 
@@ -402,7 +402,7 @@ var setSectionHeight = function () {
 
         var currentTranslateXcircle1 = translateXcircle1 * event.progress;
         var currentTranslateYcircle1 = translateYcircle1 * event.progress;
-        scene3Elements.circle1.css('transform', 'translate(' + currentTranslateXcircle1 + 'px, -' + currentTranslateYcircle1 +'px)');
+        scene3Elements.circle1.css('transform', 'translate(' + currentTranslateXcircle1 + 'px, ' + currentTranslateYcircle1 +'px)');
 
         var currentTranslateXcircle2 = translateXcircle2 * event.progress;
         var currentTranslateYcircle2 = translateYcircle2 * event.progress;
