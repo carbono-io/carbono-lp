@@ -1,0 +1,44 @@
+{
+    "ok": "ok",
+    "tryBeta": "TRY BETA",
+    "talkToUs": "Want to know more? <br>Talk to us!",
+    "menu": {
+        "home": "home",
+        "theProject": "the project",
+        "manifest": "manifest",
+        "aboutUs": "about us",
+        "contact": "contact"
+    },
+    "betaForm": {
+        "namePlaceholder": "name*",
+        "submitSuccess": "translate",
+        "betaInvite": "translate",
+        "invalidEmail": "translate",
+        "whatDoYouDo": "translate",
+        "haveAnIdea": "translate",
+        "designTheLayout": "translate",
+        "developPrototypes": "translate",
+        "developFrontEnd": "translate",
+        "developBackend": "translate",
+        "noExperienceWithDevelopment": "translate",
+        "submit": "translate"
+    },
+    "manifest": {
+        "transformIdeas": "Transform your ideas in powerful applications",
+        "theProject": "Carbono will allow you to build information systems in the form of websites and apps. There’s no limit, independent of your programming and designing skills",
+        "democratizeDevelopment": "Democratize the development of information technology",
+        "enpowerPeople": "Empower people from different knowledge areas",
+        "lowerBarriers": "Reduce the barrier to applications development",
+        "transformTheFuture": "Contribute to the transformation of the future"
+    },
+    "people": {
+        "productManager": "product manager",
+        "archops": "archops",
+        "designer": "ux designer",
+        "systemAnalyst": "system analyst",
+        "devopsEngineer": "devops engineer",
+        "hacker": "hacker",
+        "dev-engineer": "dev engineer",
+        "visio": "visionary"
+    }
+}
