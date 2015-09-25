@@ -13,9 +13,20 @@ $(document).ready(function() {
     };
 
     i18n.init(i18nextOptions, function(err, t) {
-      // translate everything
-      $("body").i18n();
+        // translate everything
+        $("body").i18n();
     });
+
+    $('.language-switch').click(function () {
+        var lang = $(this).data('lang');
+
+        i18n.setLng(lang, function () {
+            $('body').i18n();
+        });
+    });
+
+    ///////////////////////
+    /////// INTERNATIONALIZATION
     
     //////////////////////////
     /////// MENU NAVIGATION
@@ -415,6 +426,11 @@ $(document).ready(function() {
                 opacity: 0
             })
         }
+
+        // language switch
+        $('#language-switch-container').css({
+            opacity: 1 - 4 * event.progress
+        });
     });
 
 
