@@ -12,8 +12,7 @@
     "betaForm": {
         "namePlaceholder": "nome*",
         "submitSuccess": "Sua inscrição foi realizada! Em breve entraremos em contato.",
-        "betaInvite": "Quer ser um dos primeiros a testar
-a versão beta? Se inscreva aqui!",
+        "betaInvite": "Quer ser um dos primeiros a testar a versão beta? Se inscreva aqui!",
         "invalidEmail": "Seu e-mail não está correto. Ele deve seguir o formato: exemplo@exemplo.com",
         "whatDoYouDo": "Geralmente, quais papeis você desempenha na criação de aplicações?* (Preencha pelo menos uma opção)",
         "haveAnIdea": "Tenho ideias de aplicações",
