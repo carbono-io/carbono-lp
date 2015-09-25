@@ -467,9 +467,9 @@ $(document).ready(function() {
 
     var rotationDashedLine = 90;
     var translateXcircle1 = 20;
-    var translateYcircle1 = 70;
-    var translateXcircle2 = 20;
-    var translateYcircle2 = 160;
+    var translateYcircle1 = 90;
+    var translateXcircle2 = 120;
+    var translateYcircle2 = 180;
     var scaleCircle2 = 3;
 
 
@@ -480,7 +480,7 @@ $(document).ready(function() {
 
         var currentTranslateXcircle1 = translateXcircle1 * event.progress;
         var currentTranslateYcircle1 = translateYcircle1 * event.progress;
-        scene3Elements.circle1.css('transform', 'translate(' + currentTranslateXcircle1 + 'px, -' + currentTranslateYcircle1 +'px)');
+        scene3Elements.circle1.css('transform', 'translate(' + currentTranslateXcircle1 + 'px, ' + currentTranslateYcircle1 +'px)');
 
         var currentTranslateXcircle2 = translateXcircle2 * event.progress;
         var currentTranslateYcircle2 = translateYcircle2 * event.progress;
@@ -802,7 +802,7 @@ $(document).ready(function() {
         var scene3offSet = $('#section-03').offset().top;
         scene3.offset(scene3offSet - scene3offSet/4);
         var scene3height = $('#section-03').height();
-        scene3.duration(scene3height);
+        scene3.duration(scene3height - scene3height/4);
 
         var scene4offSet = $('#section-04').offset().top;
         scene4.offset(scene4offSet - scene4offSet/10);
