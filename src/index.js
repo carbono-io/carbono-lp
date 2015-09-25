@@ -819,14 +819,14 @@ $(document).ready(function() {
         scene4.duration(scene4height);
 
         var scene5offSet = $('#section-05').offset().top;
-        scene5.offset(scene5offSet - scene5offSet/10);
+        scene5.offset(scene5offSet - scene5offSet/8);
         var scene5height = $('#section-05').height();
-        scene5.duration(scene5height);
+        scene5.duration(scene5height + scene5height/3);
 
         var scene6aoffSet = $('#section-06').offset().top;
         scene6a.offset(scene6aoffSet -scene6aoffSet/10);
         var scene6aheight = $('#section-06').height();
-        scene6a.duration(scene6aheight/2);
+        scene6a.duration(scene6aheight/3);
 
         var scene6boffSet = scene6a.offset() + scene6a.duration();
         scene6b.offset(scene6boffSet);
