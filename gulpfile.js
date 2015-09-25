@@ -69,7 +69,7 @@ gulp.task('copy', ['copy:images'], function () {
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('polybuild', function () {
+gulp.task('polybuild', ['less'], function () {
     return gulp.src('src/index.html')
         // maximumCrush should uglify the js
         .pipe(polybuild({ maximumCrush: true }))
