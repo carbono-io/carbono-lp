@@ -130,6 +130,7 @@ $(document).ready(function() {
             $('#logo').css('display', 'block');
 
             setSectionHeight();
+            $('#section-01').width($(window).width());
         }
 
     });
@@ -366,11 +367,11 @@ $(document).ready(function() {
     headerScene.on('progress', function (event) {
 
         // var startLogoCTop    = logoC.offset().top;
-        var startLogoCTop = 40;
+        var startLogoCTop = 32;
         // var startLogoCLeft   = logoC.offset().left;
-        var startLogoCLeft = 40;
-        var finalLogoBoxTop = 40;
-        var finalLogoBoxLeft = 40;
+        var startLogoCLeft = 32;
+        var finalLogoBoxTop = 32;
+        var finalLogoBoxLeft = 32;
 
         var finalLogoCTop = 4 + finalLogoBoxTop;
         var finalLogoCLeft = 4 + finalLogoBoxLeft;
