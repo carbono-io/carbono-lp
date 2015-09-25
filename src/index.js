@@ -360,18 +360,19 @@ $(document).ready(function() {
 
     var headerScene = new ScrollMagic.Scene().addTo(controller);
     
-    var startLogoCHeight = headerSceneElements.logoC.height();
 
-    // 3 e 14;
+    // 56
 
     headerScene.on('progress', function (event) {
 
-        // var startLogoCTop    = logoC.offset().top;
-        var startLogoCTop = 32;
-        // var startLogoCLeft   = logoC.offset().left;
-        var startLogoCLeft = 32;
-        var finalLogoBoxTop = 32;
-        var finalLogoBoxLeft = 32;
+        var windowWidth = $(window).width();
+        
+        var startLogoCHeight = windowWidth > 360 ? 84 : 56;
+
+        var startLogoCTop = windowWidth > 360 ? 40 : 24;
+        var startLogoCLeft = windowWidth > 360 ? 40 : 24;
+        var finalLogoBoxTop = windowWidth > 360 ? 40 : 24;
+        var finalLogoBoxLeft = windowWidth > 360 ? 40 : 24;
 
         var finalLogoCTop = 4 + finalLogoBoxTop;
         var finalLogoCLeft = 4 + finalLogoBoxLeft;
@@ -404,6 +405,12 @@ $(document).ready(function() {
         });
         
         var menuButton = $('#right-command');
+
+        // set the top and left of button
+        menuButton.css({
+            top: finalLogoBoxTop,
+            right: finalLogoBoxLeft
+        });
         
         // change color of menu button from white to black
         // 60 is the distance from center of the button to 
@@ -434,7 +441,11 @@ $(document).ready(function() {
 
         // language switch
         $('#language-switch-container').css({
-            opacity: 1 - 4 * event.progress
+            opacity: 1 - 4 * event.progress,
+
+            // they are all proportional
+            bottom: startLogoCTop,
+            right: startLogoCTop
         });
     });
 
