@@ -78,6 +78,9 @@ gulp.task('polybuild', function () {
             showFiles: true,
             gzip: true
         }))
+        .pipe(gulpIf(function (file) {
+            return path.basename(file.path) === 'index.build.html';
+        }, gulpRename('index.html')))
         .pipe(gulp.dest('dist'));
 });
 
@@ -98,14 +101,6 @@ gulp.task('serve:dist', function () {
             baseDir: './dist'
         }
     })
-});
-
-gulp.task('gh-pages', function () {
-    gulp.src('dist/**/*')
-        .pipe(gulpIf(function (file) {
-            return path.basename(file.path) === 'index.build.html';
-        }, gulpRename('index.html')))
-        .pipe(gulp.dest('.'));
 });
 
 gulp.task('develop', ['watch', 'browser-sync']);
