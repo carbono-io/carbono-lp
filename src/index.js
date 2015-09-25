@@ -513,34 +513,29 @@ $(document).ready(function() {
 
     var scene4 = new ScrollMagic.Scene().addTo(controller);
 
-    var scaleCircle = 20;
+    var scaleCircle = 2;
     var scaleLine = 10;
     var width = 500;
-    var translateXLine1 = 100;
-    var translateYLine1 = -100;
-    var translateXLine2 = -300;
-    var translateYLine2 = 300;
+    var translateXLine1 = 200;
+    var translateYLine1 = -200;
+    var translateXLine2 = -400;
+    var translateYLine2 = 400;
 
     scene4.on('progress', function(event) {
 //        console.log('scene 4 progress: ' + event.progress)
         var currentScaleCircle = scaleCircle * event.progress;
         var currentOpacityCircle = 1;
-        var currentScaleLine = scaleLine * event.progress;
-        var currentWidthLine = width * event.progress;
+        var currentWidthLine = width * event.progress / 1.5;
         var currentTranslateXLine1 = translateXLine1 * event.progress;
         var currentTranslateYLine1 = translateYLine1 * event.progress;
         var currentTranslateXLine2 = translateXLine2 * event.progress;
         var currentTranslateYLine2 = translateYLine2 * event.progress;
-        var minScale = 1;
+        var minScale = 0.1;
         var minWidth = 50;
-        var maxScale = 10;
+        var maxScale = 1.5;
 
         if (currentScaleCircle < minScale) {
-            currentScaleCircle = 1;
-        }
-
-        if (currentScaleLine < minScale) {
-            currentScaleLine = 1;
+            currentScaleCircle = 0.1;
         }
 
         if (currentWidthLine < minWidth) {
@@ -818,7 +813,7 @@ $(document).ready(function() {
         scene3.duration(scene3height - scene3height/4);
 
         var scene4offSet = $('#section-04').offset().top;
-        scene4.offset(scene4offSet - scene4offSet/10);
+        scene4.offset(scene4offSet - scene4offSet/4);
         var scene4height = $('#section-04').height();
         scene4.duration(scene4height);
 
