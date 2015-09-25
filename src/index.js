@@ -294,47 +294,47 @@ var setSectionHeight = function () {
     var headerScene = new ScrollMagic.Scene().addTo(controller);
     
     var startLogoCHeight = headerSceneElements.logoC.height();
-    // var startLogoCTop    = logoC.offset().top;
-    var startLogoCTop = 40;
-    // var startLogoCLeft   = logoC.offset().left;
-    var startLogoCLeft = 40;
 
     // 3 e 14;
 
     headerScene.on('progress', function (event) {
 
-       var finalLogoBoxTop = 40;
-       var finalLogoBoxLeft = 40;
+        // var startLogoCTop    = logoC.offset().top;
+        var startLogoCTop = 40;
+        // var startLogoCLeft   = logoC.offset().left;
+        var startLogoCLeft = 40;
+        var finalLogoBoxTop = 40;
+        var finalLogoBoxLeft = 40;
 
-       var finalLogoCTop = 4 + finalLogoBoxTop;
-       var finalLogoCLeft = 4 + finalLogoBoxLeft;
-       var finalCHeight = 21;
+        var finalLogoCTop = 4 + finalLogoBoxTop;
+        var finalLogoCLeft = 4 + finalLogoBoxLeft;
+        var finalCHeight = 21;
 
-       var startLogoBoxWidth = $(window).width();
-       var finalLogoBoxWidth = 50;
+        var startLogoBoxWidth = $(window).width();
+        var finalLogoBoxWidth = 50;
 
-       var startLogoBoxHeight = $(window).height();
-       var finalLogoBoxHeight = 50;
+        var startLogoBoxHeight = $(window).height();
+        var finalLogoBoxHeight = 50;
 
-       var currentWidth = startLogoBoxWidth - ((startLogoBoxWidth - finalLogoBoxWidth) * event.progress);
-       var currentHeight = startLogoBoxHeight - ((startLogoBoxHeight - finalLogoBoxHeight) * event.progress);
+        var currentWidth = startLogoBoxWidth - ((startLogoBoxWidth - finalLogoBoxWidth) * event.progress);
+        var currentHeight = startLogoBoxHeight - ((startLogoBoxHeight - finalLogoBoxHeight) * event.progress);
 
-       // logoC
-       headerSceneElements.logoC.css({
-           height: startLogoCHeight - ((startLogoCHeight - finalCHeight) * event.progress),
+        // logoC
+        headerSceneElements.logoC.css({
+            height: startLogoCHeight - ((startLogoCHeight - finalCHeight) * event.progress),
 
-           top: startLogoCTop - ((startLogoCTop - finalLogoCTop) * event.progress),
-           left: startLogoCLeft - ((startLogoCLeft - finalLogoCLeft) * event.progress)
-       });
+            top: startLogoCTop - ((startLogoCTop - finalLogoCTop) * event.progress),
+            left: startLogoCLeft - ((startLogoCLeft - finalLogoCLeft) * event.progress)
+        });
 
-       // logoBox
-       headerSceneElements.logoBox.css({
-           width: currentWidth,
-           height: currentHeight,
+        // logoBox
+        headerSceneElements.logoBox.css({
+            width: currentWidth,
+            height: currentHeight,
 
-           top: finalLogoBoxTop * event.progress,
-           left: finalLogoBoxLeft * event.progress,
-       });
+            top: finalLogoBoxTop * event.progress,
+            left: finalLogoBoxLeft * event.progress,
+        });
         
         var menuButton = $('#right-command');
         
@@ -351,18 +351,18 @@ var setSectionHeight = function () {
         // and hide it when not
         if (event.progress >= 1) {
 
-           var finalLogoTypeTop = 14 + finalLogoBoxTop;
-           var finalLogoTypeLeft = 3 + finalLogoBoxLeft + finalLogoBoxWidth;
+            var finalLogoTypeTop = 14 + finalLogoBoxTop;
+            var finalLogoTypeLeft = 3 + finalLogoBoxLeft + finalLogoBoxWidth;
 
-           headerSceneElements.logoType.css({
-               top: finalLogoTypeTop,
-               left: finalLogoTypeLeft,
-               opacity: 1,
-           })
+            headerSceneElements.logoType.css({
+                top: finalLogoTypeTop,
+                left: finalLogoTypeLeft,
+                opacity: 1,
+            })
         } else {
-           headerSceneElements.logoType.css({
-               opacity: 0
-           })
+            headerSceneElements.logoType.css({
+                opacity: 0
+            })
         }
     });
 
