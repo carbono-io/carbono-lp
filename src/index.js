@@ -159,6 +159,7 @@ $(document).ready(function() {
     $("#sent-close-button").click(function(){
 
         openedForm = false;
+        $('#right-command').removeClass('close-command');
         $('#sent-state').removeClass('active');
         $('#modal-container').removeClass('active');
         $('#section-form').toggleClass('active');
