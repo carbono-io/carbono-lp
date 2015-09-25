@@ -130,6 +130,7 @@ $(document).ready(function() {
             $('#logo').css('display', 'block');
 
             setSectionHeight();
+            $('#section-01').width($(window).width());
         }
 
     });
