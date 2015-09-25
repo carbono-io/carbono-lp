@@ -1,7 +1,7 @@
 {
     "ok": "ok",
     "tryBeta": "TRY BETA",
-    "talkToUs": "Want to know more? Talk to us!",
+    "talkToUs": "Want to know more? <br>Talk to us!",
     "menu": {
         "home": "home",
         "theProject": "the project",

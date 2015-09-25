@@ -1,7 +1,7 @@
 {
     "ok": "ok",
     "tryBeta": "quero testar versão beta",
-    "talkToUs": "Quer saber mais? Fale conosco!",
+    "talkToUs": "Quer saber mais? <br>Fale conosco!",
     "menu": {
         "home": "home",
         "theProject": "o projeto",
@@ -11,10 +11,10 @@
     },
     "betaForm": {
         "namePlaceholder": "nome*",
-        "submitSuccess": "Sua inscrição foi realizada! Em breve entraremos em contato.",
+        "submitSuccess": "Sua inscrição foi realizada! <br>Em breve entraremos em contato.",
         "betaInvite": "Quer ser um dos primeiros a testar a versão beta? Se inscreva aqui!",
         "invalidEmail": "Seu e-mail não está correto. Ele deve seguir o formato: exemplo@exemplo.com",
-        "whatDoYouDo": "Geralmente, quais papeis você desempenha na criação de aplicações?* (Preencha pelo menos uma opção)",
+        "whatDoYouDo": "Geralmente, quais papeis você desempenha na criação de aplicações?* <br>(Preencha pelo menos uma opção)",
         "haveAnIdea": "Tenho ideias de aplicações",
         "designTheLayout": "Crio o design das telas",
         "developPrototypes": "Desenvolvo protótipos navegáveis",
