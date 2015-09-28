@@ -24,11 +24,11 @@
         "submit": "Subscribe to beta"
     },
     "manifest": {
-        "transformIdeas": "Transform your ideas in powerful applications",
-        "theProject": "Carbono.io allows you to build information systems like sites and apps for desktop, smartphones and other devices, using web standards and covering different levels of programming and designing skills.",
+        "transformIdeas": "Transform your ideas into powerful applications",
+        "theProject": "Carbono.io allows you to build information systems such as sites and apps for desktop, smartphones and other devices, using web standards and covering different levels of programming and designing skills.",
         "democratizeDevelopment": "Democratize the development of information technology",
         "enpowerPeople": "Empower people with different skills",
-        "lowerBarriers": "Reduce the barrier to application development",
+        "lowerBarriers": "Reduce the barriers to application development",
         "transformTheFuture": "Contribute to the transformation of the future"
     },
     "people": {

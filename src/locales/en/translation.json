@@ -5,17 +5,17 @@
     "menu": {
         "home": "home",
         "theProject": "the project",
-        "manifest": "manifest",
+        "manifest": "manifesto",
         "aboutUs": "about us",
         "contact": "contact"
     },
     "betaForm": {
         "namePlaceholder": "name*",
         "submitSuccess": "Thanks for subscribing.<br> We'll be in contact soon.",
-        "betaInvite": "Want to be one of the first to try our closed beta version? <br>Please, subscribe here!",
+        "betaInvite": "Want to be one of the first to try our closed beta version? <br>Subscribe here!",
         "invalidEmail": "Your e-mail is incorrect. Please, follow the format: example@example.com",
-        "whatDoYouDo": "In general, which roles do you play when creating applications?* <br>(Please, choose at least one option)",
-        "haveAnIdea": "I have ideas of applications",
+        "whatDoYouDo": "In general, which roles do you play when creating applications?* <br>(Please choose at least one option)",
+        "haveAnIdea": "I have ideas for applications",
         "designTheLayout": "I design the interface",
         "developPrototypes": "I create working prototypes",
         "developFrontEnd": "I develop front-end",
@@ -24,11 +24,11 @@
         "submit": "Subscribe to beta"
     },
     "manifest": {
-        "transformIdeas": "Transform your ideas in powerful applications",
-        "theProject": "Carbono.io allows you to build information systems like sites and apps for desktop, smartphones and other devices, using web standards and covering different levels of programming and designing skills.",
+        "transformIdeas": "Transform your ideas into powerful applications",
+        "theProject": "Carbono.io allows you to build information systems such as sites and apps for desktop, smartphones, and other devices using web standards and covering different levels of programming and designing skills.",
         "democratizeDevelopment": "Democratize the development of information technology",
         "enpowerPeople": "Empower people with different skills",
-        "lowerBarriers": "Reduce the barrier to application development",
+        "lowerBarriers": "Reduce the barriers to application development",
         "transformTheFuture": "Contribute to the transformation of the future"
     },
     "people": {
