@@ -21,7 +21,7 @@
         "developFrontEnd": "Desenvolvo o front-end ",
         "developBackend": "Desenvolvo o back-end",
         "noExperienceWithDevelopment": "Ainda não tenho experiência com criação de aplicações",
-        "required": "*Respostas obrigatórias",
+        "required": "*Campos obrigatórios",
         "submit": "Enviar inscrição"
     },
     "manifest": {
