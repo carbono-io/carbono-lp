@@ -139,6 +139,13 @@ $(document).ready(function() {
     // abrir formulário
     $('#button-to-form').click(function () {
 
+
+        mixpanel.track("beta-subscription:open-form", {
+            windowWidth: $(window).width(),
+            windowHeight: $(window).height()
+        });
+
+
         openedForm = true;
         $('#section-form').toggleClass('active');
         window.scrollTo(0, 0);
@@ -266,6 +273,9 @@ $(document).ready(function() {
 
     // submit do form
     $("#form-contact").submit(function(event) {
+
+        var parser = new UAParser();
+
         // prevent default at start so that error do not cause reload
         event.preventDefault();
         // read data
@@ -273,6 +283,12 @@ $(document).ready(function() {
             name: readName(),
             email: readEmail(),
             experience: readExperience(),
+
+            // add some data
+            windowWidth: '' + $(window).width(),
+            windowHeight: '' + $(window).height(),
+            userAgent: '' + navigator.userAgent,
+            uaData: parser.getResult(),
         };
 
         var Subscription = Parse.Object.extend("Subscription");
@@ -280,6 +296,18 @@ $(document).ready(function() {
         subscription
             .save(data)
             .then(function(object) {
+
+                console.log(object);
+
+                // identify the user
+                mixpanel.identify(object.id);
+
+                mixpanel.track("beta-subscription:submit-success", {
+                    id: object.id,
+                    windowWidth: $(window).width(),
+                    windowHeight: $(window).height()
+                });
+
                 $('#loading-state').removeClass('active');
                 $('#sent-state').addClass('active');
             }, function (err) {
