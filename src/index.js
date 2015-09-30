@@ -288,6 +288,8 @@ $(document).ready(function() {
             windowWidth: '' + $(window).width(),
             windowHeight: '' + $(window).height(),
             userAgent: '' + navigator.userAgent,
+            referrer: document.referrer,
+            language: i18n.lng(),
             uaData: parser.getResult(),
         };
 
@@ -300,12 +302,12 @@ $(document).ready(function() {
                 console.log(object);
 
                 // identify the user
-                mixpanel.identify(object.id);
-
                 mixpanel.track("beta-subscription:submit-success", {
                     id: object.id,
                     windowWidth: $(window).width(),
-                    windowHeight: $(window).height()
+                    windowHeight: $(window).height(),
+                    name: data.name,
+                    email: data.email,
                 });
 
                 $('#loading-state').removeClass('active');

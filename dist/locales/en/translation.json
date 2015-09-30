@@ -21,6 +21,7 @@
         "developFrontEnd": "I develop front-end",
         "developBackend": "I develop back-end",
         "noExperienceWithDevelopment": "I haven't created applications yet",
+        "required": "*Required",
         "submit": "Subscribe to beta"
     },
     "manifest": {
