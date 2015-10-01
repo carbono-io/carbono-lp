@@ -38,6 +38,7 @@ gulp.task("watch", ['less'], function () {
     gulp.watch(['src/**/*.css', 'src/**/*.html'], function () {
         browserSync.reload();
     });
+    gulp.watch('src/**/*.js', browserSync.reload);
 
 });
 
