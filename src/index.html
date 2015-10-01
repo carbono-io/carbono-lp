@@ -51,48 +51,46 @@ Carbono.io is a platform that allows people with different levels of programming
 
     <body>
 
+        <!-- all these are positioned fixed to the window -->
+        <!-- logo -->
         <div id="logo">
 
             <img src="img/logo-01.svg" id="logo-c">
             <div id="logo-box"></div>
             <img src="img/logo_assinatura-03.svg" id="logo-type">
 
-<!-- FAZER A TRASNFORMAÇÃO NESSE LOGO
-
-            <div id="logo-full">
-                <img src="img/logo_assinatura.svg">
-            </div>
--->
-
         </div>
         
         <div id ="right-command">
 
-
             <svg height="40" width="40" >
 
+                    <line 
+                        x1="1"
+                        x2="39"
+                        y1="7"
+                        y2="7"
+                        stroke-width="2"
+                        stroke-linecap="butt"
+                    />
 
-                    <line x1="1"
-                          x2="39"
-                          y1="7"
-                          y2="7"
-                          stroke-width="2"
-                          stroke-linecap="butt"/>
+                    <line 
+                        x1="1"
+                        x2="39"
+                        y1="20"
+                        y2="20"
+                        stroke-width="2"
+                        stroke-linecap="butt"
+                    />
 
-                    <line x1="1"
-                          x2="39"
-                          y1="20"
-                          y2="20"
-                          stroke-width="2"
-                          stroke-linecap="butt"/>
-
-                    <line x1="1"
-                          x2="39"
-                          y1="33"
-                          y2="33"
-                          stroke-width="2"
-                          stroke-linecap="butt"/>
-
+                    <line 
+                        x1="1"
+                        x2="39"
+                        y1="33"
+                        y2="33"
+                        stroke-width="2"
+                        stroke-linecap="butt"
+                    />
             </svg>
         </div>
 
@@ -101,8 +99,9 @@ Carbono.io is a platform that allows people with different levels of programming
             |
             <span class="language-switch" data-lang="en">en</span>
         </div>
+        <!-- all these are positioned fixed to the window -->
 
-
+        <!-- section-menu -->
         <div id="section-menu">
             <a href="#section-01">
                 <h2 data-i18n="menu.home">home</h2>
@@ -121,10 +120,9 @@ Carbono.io is a platform that allows people with different levels of programming
             </a>
         </div>
 
+        <!-- section-form -->
         <div id="section-form">
-
             <div id="modal-container">
-
                 <div id="loading-state">
                     <div class="spinner"></div>
                 </div>
@@ -133,12 +131,9 @@ Carbono.io is a platform that allows people with different levels of programming
                     <h2 data-i18n="[html]betaForm.submitSuccess">Sua inscrição foi realizada!<br><span>Em breve entraremos em contato.</span></h2>
                     <button class="button" id="sent-close-button">Ok</button>
                 </div>
-
             </div>
 
-
             <form id="form-contact" action="" method="">
-
                     <h2 data-i18n="[html]betaForm.betaInvite">Quer ser um dos primeiros a testar
 a versão beta?<br> Se inscreva aqui!</h2>
 
@@ -228,23 +223,19 @@ a versão beta?<br> Se inscreva aqui!</h2>
                             </span>
                         </div>
                     </label>
-
                 </div>
 
                 <p data-i18n="betaForm.required" class= "required">*Respostas obrigatórias</p>
 
-
                 <input type="submit" data-i18n="[value]betaForm.submit" value="Enviar inscrição" id="register-button">
 
-
-
-
             </form>
-
         </div>
 
+        <!-- div that wraps all content of the page -->
         <div id="content-wrapper">
 
+            <!-- section-01 -->
             <div id="section-01" class="sections">
                 <h1 data-i18n="manifest.transformIdeas">
                     Transforme suas ideias em aplicações poderosas.
@@ -256,6 +247,7 @@ a versão beta?<br> Se inscreva aqui!</h2>
                 </a>
             </div>
 
+            <!-- section-02 -->
             <div id="section-02" class="sections">
                 <div class="text" data-i18n="manifest.theProject">
                 A Carbono permitirá a você construir sistemas de informação na forma de sites, aplicativos, entre outros. Não há limites, independente do seu nível de conhecimento em programação e design.
@@ -263,6 +255,7 @@ a versão beta?<br> Se inscreva aqui!</h2>
                 </div>
             </div>
 
+            <!-- section-03 -->
             <div id="section-03" class="sections">
                 <div class="text" data-i18n="manifest.democratizeDevelopment">
                     Democratizar o desenvolvimento de tecnologia da informação
@@ -270,19 +263,20 @@ a versão beta?<br> Se inscreva aqui!</h2>
                 <div
                     id="dashed-line-03-1"
                     class="dashed-line"
-                     >
+                >
                 </div>
                 <img
                     src="img/circle-03-1.png"
                     id="circle-03-1"
-                     >
+                >
                 <div
                     id="circle-03-2"
                     class="circle"
-                     >
+                >
                 </div>
             </div>
 
+            <!-- section-04 -->
             <div id="section-04" class="sections">
                 <div class="text" data-i18n="manifest.enpowerPeople">
                     Empoderar pessoas de diferentes áreas do conhecimento
@@ -292,6 +286,7 @@ a versão beta?<br> Se inscreva aqui!</h2>
                 <div id="solid-line-04-2" class="solid-line"></div>
             </div>
 
+            <!-- section-05 -->
             <div id="section-05" class="sections">
                 <div class="text" id="text-05-1" data-i18n="[html]manifest.lowerBarriers">
                     Diminuir a barreira para o<br> desenvolvimento de aplicações
@@ -309,6 +304,7 @@ a versão beta?<br> Se inscreva aqui!</h2>
 
             </div>
 
+            <!-- section-06 -->
             <div id="section-06" class="sections">
                 <div class="text" data-i18n="manifest.transformTheFuture">
                     Contribuir para a transformação do futuro
@@ -321,6 +317,7 @@ a versão beta?<br> Se inscreva aqui!</h2>
                 </div>
             </div>
 
+            <!-- section-aboutus -->
             <div id="section-aboutus">
                 <div id="title" data-i18n="menu.aboutUs">
                     sobre nós
@@ -394,6 +391,8 @@ a versão beta?<br> Se inscreva aqui!</h2>
                     </div>
                 </div>
             </div>
+
+            <!-- section-contact -->
             <div id="section-contact" class="sections">
                 <div class="text" data-i18n="[html]talkToUs">
                     Quer saber mais? <br>
@@ -406,31 +405,33 @@ a versão beta?<br> Se inscreva aqui!</h2>
                         hello@carbono.io
                     </a>
                 </div>
-
-
             </div>
-            </div>
+        </div>
+        <!-- content-wrapper end -->
     </div>
         
+        <!-- external libraries -->
+        <!-- jquery -->
         <script src="bower_components/jquery/dist/jquery.js"></script>
         <!-- i18next -->
         <script src="bower_components/i18next/i18next.js"></script>
-
+        <!-- user agent parser -->
         <script src="bower_components/ua-parser-js/dist/ua-parser.min.js"></script>
-
-<!--    scroll magic
-        <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
--->
+        <!-- scroll magic -->
         <script src="bower_components/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js"></script>
-
-        <!-- PARSE -->
+        <!-- parse sdk -->
         <script src="parse/parse-1.6.2.js"></script>
-        <script src="index.js"></script>
+        <!-- external libraries -->
 
+        <!-- our scripts -->
+        <script src="scripts/initialization.js"></script>
+        <script src="scripts/right-command.js"></script>
+        <script src="scripts/beta-form.js"></script>
+        <script src="scripts/menu.js"></script>
+        <script src="scripts/animations.js"></script>
+        <script src="scripts/i18n.js"></script>
 
-
-<!--    google analytics-->
+        <!-- google analytics-->
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
