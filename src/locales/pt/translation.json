@@ -2,12 +2,14 @@
     "ok": "ok",
     "tryBeta": "TESTAR BETA FECHADO",
     "talkToUs": "Quer saber mais? <br>Fale conosco!",
+    "ourPartners": "Nossos parceiros",
     "menu": {
         "home": "home",
         "theProject": "o projeto",
         "manifest": "manifesto",
         "aboutUs": "sobre nós",
-        "contact": "contato"
+        "contact": "contato",
+        "partners": "parceiros"
     },
     "betaForm": {
         "namePlaceholder": "nome*",

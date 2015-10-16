@@ -19,8 +19,8 @@ $(document).ready(function () {
     // checkboxes começam não selecionados
     var checkedAtLeastOne = false;
 
-    // abrir formulário
-    $('#button-to-form').click(function () {
+    // function open form
+    function openBetaForm() {
 
         mixpanel.track("beta-subscription:open-form", {
             windowWidth: $(window).width(),
@@ -40,7 +40,7 @@ $(document).ready(function () {
         // transform the right command into an 'x'
         $('#right-command').addClass('close-command');
 
-        // setar todos os values para 0 quando abre
+        // set values of input to 0 when openning
         $('input[type="text"]').val("");
         $('input[type="email"]').val("");
         $('input[type="checkbox"]').each(function() {
@@ -48,9 +48,15 @@ $(document).ready(function () {
                 $(this).prop('checked', false);
             }
         });
-    });
+    }
 
-    // fechar formulário após enviado (botao de sucesso)
+    // click on main button to open form
+    $('#button-to-form').click(openBetaForm);
+
+    // click on header button to open form
+    $('#button-to-form-header').click(openBetaForm);
+
+    // close form after sucess on sending (sucess button)
     $("#sent-close-button").click(function(){
 
         CARBOLP.openedForm = false;
