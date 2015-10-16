@@ -52,11 +52,11 @@ body {
         #logo-type {
             position: fixed;
             z-index: @logoTypeZIndex;
+            opacity: 0;
             transition: all ease 0.5s;
         }
 
         #button-to-form-header {
-            transition: all ease 0.5s;
             position: fixed;
             cursor: pointer;
             color: @blue;
@@ -67,8 +67,9 @@ body {
             box-sizing: border-box;
             border: 1px solid @blue;
             text-align: center;
-            z-index: 10000;
-
+            z-index: @logoTypeZIndex;
+            opacity: 0;
+            transition: all ease 0.5s;
         }
 
     }
