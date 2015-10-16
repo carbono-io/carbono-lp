@@ -17,6 +17,7 @@
             logoC: $('#logo-c'),
             logoBox: $('#logo-box'),
             logoType: $('#logo-type'),
+            buttonToFormHeader: $('#button-to-form-header'),
             menuButton: $('#right-command'),
             languageSwitchContainer: $('#language-switch-container')
         };
@@ -96,20 +97,35 @@
                 headerSceneElements.menuButton.removeClass('black');   
             }
             
-            // make the logoType appear when scene is complete
+            // make the logoType and buttonToFormHeader appear when scene is complete
             // and hide it when not
             if (event.progress >= 1) {
 
                 var finalLogoTypeTop = 14 + finalLogoBoxTop;
                 var finalLogoTypeLeft = 3 + finalLogoBoxLeft + finalLogoBoxWidth;
 
+                var finalButtonToFormHeaderTop = 2 + finalLogoBoxTop;
+                var finalButtonToFormHeaderLeft = 24 + finalLogoTypeLeft;
+
                 headerSceneElements.logoType.css({
                     top: finalLogoTypeTop,
                     left: finalLogoTypeLeft,
                     opacity: 1,
                 });
+
+
+                headerSceneElements.buttonToFormHeader.css({
+                    top: finalButtonToFormHeaderTop,
+                    right: finalButtonToFormHeaderLeft,
+                    opacity: 1,
+                });
+
             } else {
                 headerSceneElements.logoType.css({
+                    opacity: 0
+                });
+
+                headerSceneElements.buttonToFormHeader.css({
                     opacity: 0
                 });
             }
