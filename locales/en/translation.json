@@ -2,12 +2,14 @@
     "ok": "ok",
     "tryBeta": "JOIN CLOSED BETA",
     "talkToUs": "Want to know more? <br>Contact us!",
+    "funding": "Project funded by Finep",
     "menu": {
         "home": "home",
         "theProject": "the project",
         "manifest": "manifest",
         "aboutUs": "about us",
-        "contact": "contact"
+        "contact": "contact",
+        "funding": "funding"        
     },
     "betaForm": {
         "namePlaceholder": "name*",
